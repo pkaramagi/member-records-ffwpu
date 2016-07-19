@@ -8,8 +8,8 @@ use Yii;
  * This is the model class for table "blessing_group".
  *
  * @property integer $id
- * @property integer $name
- * @property string $date
+ * @property string $name
+ * @property string $year
  *
  * @property User[] $users
  */
@@ -29,9 +29,9 @@ class BlessingGroup extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'date'], 'required'],
-            [['name'], 'integer'],
-            [['date'], 'safe'],
+            [['name', 'year'], 'required'],
+            [['name'], 'string'],
+            [['year'], 'safe'],
             [['name'], 'unique'],
         ];
     }
@@ -44,7 +44,7 @@ class BlessingGroup extends \yii\db\ActiveRecord
         return [
             'id' => Yii::t('app', 'ID'),
             'name' => Yii::t('app', 'Name'),
-            'date' => Yii::t('app', 'Date'),
+            'year' => Yii::t('app', 'Year'),
         ];
     }
 
