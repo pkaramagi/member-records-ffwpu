@@ -4,6 +4,7 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use kartik\widgets\Select2;
 use kartik\widgets\DatePicker;
+use kartik\widgets\FileInput;
 /* @var $this yii\web\View */
 /* @var $model common\models\AppUser */
 /* @var $form yii\widgets\ActiveForm */
@@ -22,13 +23,17 @@ use kartik\widgets\DatePicker;
     <?= $form->field($model, 'username')->textInput(['maxlength' => true]) ?>
 
     <?=$form->field($model, 'nationality')->widget(Select2::classname(), [
-        'data' => $model::NATIONALITIES,
+        'data' => $model->getNationalities(),
         'options' => ['placeholder' => 'Nationality ...'],
     ])->label('Nationality'); ?>
 
     <?=$form->field($model, 'blessing_group_id')->widget(Select2::classname(), [
         'data' => $blessing_groups,
         'options' => ['placeholder' => 'Select a blessing group ...'],
+        'pluginOptions' => [
+            'tags' => true,
+            'maximumInputLength' => 2
+        ],
 
     ])->label('Blessing Group'); ?>
 
@@ -51,7 +56,9 @@ use kartik\widgets\DatePicker;
 
     <?= $form->field($model, 'passport')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'picture')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'picture')->widget(FileInput::classname(), [
+        'options' => ['accept' => 'image/*'],
+    ]); ?>
 
     <?= $form->field($model, 'joined_at')->textInput(['maxlength' => true]) ?>
 
