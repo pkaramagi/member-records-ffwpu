@@ -68,7 +68,7 @@ class BlessingGroup extends \yii\db\ActiveRecord
 
     /**
      * Returns an array helper of blessing groups
-     * @return ArrayHelper|null
+     * @return \yii\helpers\ArrayHelper|null
      */
 
     public static function getBlessingGroupsArray(){

@@ -51,4 +51,22 @@ class Religion extends \yii\db\ActiveRecord
     {
         return $this->hasMany(User::className(), ['religion_id' => 'id']);
     }
+
+    /**
+     * Returns Religion objects
+     * @return \yii\activeQuery -> Religions
+     * */
+    public static function getReligions(){
+        return static::find()->all();
+    }
+
+    /**
+    * Returns Religion Array helper
+    *  @return \yii\helpers\ArrayHelper
+    * */
+    public static function getReligionsArray(){
+        return \yii\helpers\ArrayHelper::map(static::find()->all(),'id','name');
+    }
+
+
 }
