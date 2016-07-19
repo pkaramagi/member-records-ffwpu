@@ -29,7 +29,7 @@ class Generation extends \yii\db\ActiveRecord
     {
         return [
             [['name'], 'required'],
-            [['name'], 'string', 'max' => 20],
+            [['name'], 'string', 'max' => 50],
         ];
     }
 
@@ -51,4 +51,18 @@ class Generation extends \yii\db\ActiveRecord
     {
         return $this->hasMany(User::className(), ['generation_id' => 'id']);
     }
+    /**
+     * Returns a list of generations
+     * @param boolean $arr
+     * @return array | \yii\db\Query
+    */
+    public static function getGenerations($arr=false){
+        //check if array is enabled
+        if($arr){
+            return \yii\helpers\ArrayHelper::map(static::find()->all(), 'id','name');
+        }
+        return static::find()->all();
+    }
+
+
 }

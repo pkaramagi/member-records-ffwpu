@@ -6,9 +6,11 @@ use Yii;
 use common\models\AppUser;
 use common\models\BlessingGroup;
 use common\models\Religion;
+use common\models\Generation;
 use backend\models\AppUserSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
+
 use yii\filters\VerbFilter;
 use yii\helpers\ArrayHelper;
 
@@ -75,10 +77,11 @@ class AppUserController extends Controller
             return $this->render('create', [
                 'model' => $model,
                 /*
-                *  blessing-group, religions, for  auto complete
+                *  blessing-group, religions, generation arrays for  auto complete
                  * */
-                'blessing_groups'=>BlessingGroup::getBlessingGroupsArray(),
-                'religions'=>Religion::getReligionsArray(),
+                'blessing_groups'=>BlessingGroup::getBlessingGroups(true),
+                'religions'=>Religion::getReligions(true),
+                'generations'=> Generation::getGenerations(true),
             ]);
         }
     }

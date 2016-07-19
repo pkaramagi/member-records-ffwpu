@@ -53,19 +53,15 @@ class Religion extends \yii\db\ActiveRecord
     }
 
     /**
-     * Returns Religion objects
+     * Returns Religion objects or array
+     * @param boolean $arr
      * @return \yii\activeQuery -> Religions
      * */
-    public static function getReligions(){
+    public static function getReligions($arr){
+        if($arr){
+            return \yii\helpers\ArrayHelper::map(static::find()->all(),'id','name');
+        }
         return static::find()->all();
-    }
-
-    /**
-    * Returns Religion Array helper
-    *  @return \yii\helpers\ArrayHelper
-    * */
-    public static function getReligionsArray(){
-        return \yii\helpers\ArrayHelper::map(static::find()->all(),'id','name');
     }
 
 

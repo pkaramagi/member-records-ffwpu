@@ -71,7 +71,10 @@ use kartik\widgets\FileInput;
     ])->label('Previous Religion'); ?>
 
 
-    <?= $form->field($model, 'generation_id')->textInput() ?>
+    <?=$form->field($model, 'generation_id')->widget(Select2::classname(), [
+        'data' => $generations,
+        'options' => ['placeholder' => 'Generation ...'],
+    ])->label('Generation'); ?>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? Yii::t('app', 'Create') : Yii::t('app', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>

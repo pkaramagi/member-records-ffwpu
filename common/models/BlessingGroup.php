@@ -58,22 +58,16 @@ class BlessingGroup extends \yii\db\ActiveRecord
     }
 
     /**
-     * Returns  blessing groups objects
-     * @return \yii\db\ActivieQuery -> BlessingGroup
+     * Returns  blessing groups objects or an array
+     * @param boolean $arr
+     * @return  array | \yii\db\ActivieQuery
      */
 
-    public static function getBlessingGroups(){
+    public static function getBlessingGroups($arr=false){
+        if($arr){
+            return  \yii\helpers\ArrayHelper::map(static::find()->all(),'id','name');
+        }
        return static::find()->all();
    }
 
-    /**
-     * Returns an array helper of blessing groups
-     * @return \yii\helpers\ArrayHelper|null
-     */
-
-    public static function getBlessingGroupsArray(){
-
-        return  \yii\helpers\ArrayHelper::map(static::find()->all(),'id','name');
-
-    }
 }
