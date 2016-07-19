@@ -2,7 +2,8 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
-
+use kartik\widgets\Select2;
+use kartik\widgets\DatePicker;
 /* @var $this yii\web\View */
 /* @var $model common\models\AppUser */
 /* @var $form yii\widgets\ActiveForm */
@@ -22,11 +23,26 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'nationality')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'blessing_group_id')->textInput() ?>
+    <?=$form->field($model, 'blessing_group_id')->widget(Select2::classname(), [
+        'data' => $blessing_groups,
+        'options' => ['placeholder' => 'Select a blessing group ...'],
 
-    <?= $form->field($model, 'date_of_birth')->textInput() ?>
+    ])->label('Blessing Group'); ?>
 
-    <?= $form->field($model, 'spiritual_date_of_birth')->textInput() ?>
+    <?= $form->field($model, 'date_of_birth')->widget(DatePicker::classname(), [
+    'options' => ['placeholder' => 'Enter birth date ...'],
+    'pluginOptions' => [
+    'autoclose'=>true
+    ]
+    ]); ?>
+
+    <?= $form->field($model, 'spiritual_date_of_birth')->widget(DatePicker::classname(), [
+        'options' => ['placeholder' => 'Enter birth date ...'],
+        'pluginOptions' => [
+            'autoclose'=>true
+        ]
+    ]); ?>
+
 
     <?= $form->field($model, 'spiritual_parent')->textInput(['maxlength' => true]) ?>
 

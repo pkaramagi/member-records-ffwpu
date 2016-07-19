@@ -8,7 +8,7 @@ use Yii;
  * This is the model class for table "religion".
  *
  * @property integer $id
- * @property integer $name
+ * @property string $name
  *
  * @property User[] $users
  */
@@ -29,7 +29,7 @@ class Religion extends \yii\db\ActiveRecord
     {
         return [
             [['name'], 'required'],
-            [['name'], 'integer'],
+            [['name'], 'string', 'max' => 200],
         ];
     }
 

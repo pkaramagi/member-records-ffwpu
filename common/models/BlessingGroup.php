@@ -48,11 +48,32 @@ class BlessingGroup extends \yii\db\ActiveRecord
         ];
     }
 
+
     /**
      * @return \yii\db\ActiveQuery
      */
     public function getUsers()
     {
         return $this->hasMany(User::className(), ['blessing_group_id' => 'id']);
+    }
+
+    /**
+     * Returns  blessing groups objects
+     * @return \yii\db\ActivieQuery -> BlessingGroup
+     */
+
+    public static function getBlessingGroups(){
+       return static::find()->all();
+   }
+
+    /**
+     * Returns an array helper of blessing groups
+     * @return ArrayHelper|null
+     */
+
+    public static function getBlessingGroupsArray(){
+
+        return  \yii\helpers\ArrayHelper::map(static::find()->all(),'id','name');
+
     }
 }

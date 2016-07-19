@@ -4,10 +4,12 @@ namespace backend\controllers;
 
 use Yii;
 use common\models\AppUser;
+use common\models\BlessingGroup;
 use backend\models\AppUserSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\helpers\ArrayHelper;
 
 /**
  * AppUserController implements the CRUD actions for AppUser model.
@@ -63,13 +65,19 @@ class AppUserController extends Controller
      */
     public function actionCreate()
     {
+
         $model = new AppUser();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(['view', 'id' => $model->id,]);
         } else {
             return $this->render('create', [
                 'model' => $model,
+                /*
+                *  blessing-group array for blessing group field auto complete
+                 * */
+
+                'blessing_groups'=>BlessingGroup::getBlessingGroupsArray(),
             ]);
         }
     }

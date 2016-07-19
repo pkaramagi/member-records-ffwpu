@@ -18,7 +18,8 @@ class BlessingGroupSearch extends BlessingGroup
     public function rules()
     {
         return [
-            [['id', 'name'], 'integer'],
+            [['id'], 'integer'],
+			[['name'],'string'],
             [['year'], 'safe'],
         ];
     }
@@ -60,9 +61,10 @@ class BlessingGroupSearch extends BlessingGroup
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
-            'name' => $this->name,
             'year' => $this->year,
         ]);
+		//grid filtering conditions
+		$query->andFilterWhere(['like', 'name', $this->name]);
 
         return $dataProvider;
     }
