@@ -16,7 +16,9 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <?= $this->render('_form', [
         //pass blessing groups for autocomplete functionality
-        'model' => $model,'blessing_groups'=>$blessing_groups
+        'model' => $model,
+        'blessing_groups'=>$blessing_groups,
+        'religions' => $religions,
     ]) ?>
 
 </div>

@@ -21,7 +21,10 @@ use kartik\widgets\DatePicker;
 
     <?= $form->field($model, 'username')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'nationality')->textInput(['maxlength' => true]) ?>
+    <?=$form->field($model, 'nationality')->widget(Select2::classname(), [
+        'data' => $model::NATIONALITIES,
+        'options' => ['placeholder' => 'Nationality ...'],
+    ])->label('Nationality'); ?>
 
     <?=$form->field($model, 'blessing_group_id')->widget(Select2::classname(), [
         'data' => $blessing_groups,
@@ -41,7 +44,7 @@ use kartik\widgets\DatePicker;
         'pluginOptions' => [
             'autoclose'=>true
         ]
-    ]); ?>
+    ])->label('Spiritual Birth Date'); ?>
 
 
     <?= $form->field($model, 'spiritual_parent')->textInput(['maxlength' => true]) ?>
@@ -54,7 +57,12 @@ use kartik\widgets\DatePicker;
 
     <?= $form->field($model, 'sex')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'religion_id')->textInput() ?>
+
+    <?=$form->field($model, 'religion_id')->widget(Select2::classname(), [
+        'data' => $religions,
+        'options' => ['placeholder' => 'Previous Religion ...'],
+    ])->label('Previous Religion'); ?>
+
 
     <?= $form->field($model, 'generation_id')->textInput() ?>
 

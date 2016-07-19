@@ -5,6 +5,7 @@ namespace backend\controllers;
 use Yii;
 use common\models\AppUser;
 use common\models\BlessingGroup;
+use common\models\Religion;
 use backend\models\AppUserSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -74,10 +75,10 @@ class AppUserController extends Controller
             return $this->render('create', [
                 'model' => $model,
                 /*
-                *  blessing-group array for blessing group field auto complete
+                *  blessing-group, religions, for  auto complete
                  * */
-
                 'blessing_groups'=>BlessingGroup::getBlessingGroupsArray(),
+                'religions'=>Religion::getReligionsArray(),
             ]);
         }
     }
