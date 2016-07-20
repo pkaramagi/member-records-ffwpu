@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use  kartik\widgets\Select2;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\Donation */
@@ -16,7 +17,11 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'amount')->textInput() ?>
 
-    <?= $form->field($model, 'donation_type')->textInput() ?>
+    <?=$form->field($model, 'donation_type')->widget(Select2::classname(), [
+        'data' => $donation_types,
+        'options' => ['placeholder' => 'Select a Donation Type ...'],
+    ])->label('Blessing Group'); ?>
+
 
     <?= $form->field($model, 'description')->textarea(['rows' => 6]) ?>
 

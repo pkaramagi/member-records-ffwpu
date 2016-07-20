@@ -3,16 +3,17 @@
 namespace backend\controllers;
 
 use Yii;
+use common\models\Donation;
 use common\models\DonationType;
-use backend\models\DonationTypeSearch;
+use backend\models\DonationSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * DontationTypeController implements the CRUD actions for DonationType model.
+ * DonationController implements the CRUD actions for Donation model.
  */
-class DontationTypeController extends Controller
+class DonationController extends Controller
 {
     /**
      * @inheritdoc
@@ -30,12 +31,12 @@ class DontationTypeController extends Controller
     }
 
     /**
-     * Lists all DonationType models.
+     * Lists all Donation models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new DonationTypeSearch();
+        $searchModel = new DonationSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -45,7 +46,7 @@ class DontationTypeController extends Controller
     }
 
     /**
-     * Displays a single DonationType model.
+     * Displays a single Donation model.
      * @param integer $id
      * @return mixed
      */
@@ -57,25 +58,29 @@ class DontationTypeController extends Controller
     }
 
     /**
-     * Creates a new DonationType model.
+     * Creates a new Donation model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new DonationType();
+        $model = new Donation();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('create', [
                 'model' => $model,
+                /*
+                 * passes an array of donation types
+                 * */
+                'donation_types'=> DonationType::getDonationTypes(true),
             ]);
         }
     }
 
     /**
-     * Updates an existing DonationType model.
+     * Updates an existing Donation model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -94,7 +99,7 @@ class DontationTypeController extends Controller
     }
 
     /**
-     * Deletes an existing DonationType model.
+     * Deletes an existing Donation model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -107,15 +112,15 @@ class DontationTypeController extends Controller
     }
 
     /**
-     * Finds the DonationType model based on its primary key value.
+     * Finds the Donation model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return DonationType the loaded model
+     * @return Donation the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = DonationType::findOne($id)) !== null) {
+        if (($model = Donation::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
