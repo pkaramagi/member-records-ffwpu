@@ -4,6 +4,7 @@ namespace backend\controllers;
 
 use Yii;
 use common\models\Relationship;
+use common\models\RelationshipType;
 use backend\models\RelationshipSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -70,6 +71,7 @@ class RelationshipController extends Controller
         } else {
             return $this->render('create', [
                 'model' => $model,
+                'relationship_types' => RelationshipType::getRelationshipTypes(true),
             ]);
         }
     }

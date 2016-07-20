@@ -15,7 +15,7 @@ use dosamigos\tinymce\TinyMce;
     <?php $form = ActiveForm::begin(); ?>
 
     <?=$form->field($model, 'relationship_type_id')->widget(Select2::classname(), [
-        'data' => $relatitionship_types,
+        'data' => $relationship_types,
         'options' => ['placeholder' => 'Select a blessing group ...'],
         'pluginOptions' => [
             'tags' => true,

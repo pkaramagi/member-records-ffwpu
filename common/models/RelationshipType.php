@@ -59,7 +59,7 @@ class RelationshipType extends \yii\db\ActiveRecord
      */
     public static function getRelationshipTypes($arr=false){
         if($arr){
-            return \yii\helpers\ArrayHelper::map(static::find()->all(),'id','item');
+            return \yii\helpers\ArrayHelper::map(static::find()->all(),'id','name');
         }
         return static::find()->all();
     }
