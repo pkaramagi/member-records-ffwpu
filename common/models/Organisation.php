@@ -51,4 +51,17 @@ class Organisation extends \yii\db\ActiveRecord
     {
         return $this->hasMany(UnificationCareerRecord::className(), ['organisation_id' => 'id']);
     }
+
+    /**
+     * @param boolean $arr
+     * @return array | \yii\db\ActiveQuery
+     */
+    public static function getOrganisations($arr){
+        if($arr){
+            return \yii\helpers\ArrayHelper::map(static::find()->all(),'id','name');
+        }
+        else{
+            return static::find()->all();
+        }
+    }
 }

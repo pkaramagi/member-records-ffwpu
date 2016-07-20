@@ -4,6 +4,7 @@ namespace backend\controllers;
 
 use Yii;
 use common\models\UnificationCareerRecord;
+use common\models\Organisation;
 use backend\models\UnificationCareerRecordSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -70,6 +71,7 @@ class UnificationCareerRecordController extends Controller
         } else {
             return $this->render('create', [
                 'model' => $model,
+                'organisations'=>Organisation::getOrganisations(true),
             ]);
         }
     }
