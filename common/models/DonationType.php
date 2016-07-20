@@ -51,5 +51,16 @@ class DonationType extends \yii\db\ActiveRecord
     public function getDonations()
     {
         return $this->hasMany(Donation::className(), ['donation_type' => 'name']);
+
+    }
+    /**
+    * @param boolean $arr
+     * @return array | \yii\db\ActiveQuery
+     */
+    public static function  getDonationTypes($arr=false){
+        if($arr){
+            return \yii\helpers\ArrayHelper::map(static::find()->all(),'id','name');
+        }
+        return static::find()->all();
     }
 }
