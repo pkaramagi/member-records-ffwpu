@@ -8,11 +8,11 @@ use Yii;
  * This is the model class for table "address".
  *
  * @property integer $id
- * @property integer $street
- * @property integer $city
- * @property integer $district
- * @property integer $region
- * @property integer $country
+ * @property string $street
+ * @property string $city
+ * @property string $district
+ * @property string $region
+ * @property string $country
  * @property integer $user_id
  *
  * @property User $user
@@ -34,7 +34,8 @@ class Address extends \yii\db\ActiveRecord
     {
         return [
             [['street', 'city', 'district', 'region', 'country', 'user_id'], 'required'],
-            [['street', 'city', 'district', 'region', 'country', 'user_id'], 'integer'],
+            [['user_id'], 'integer'],
+            [['street', 'city', 'district', 'region', 'country'], 'string', 'max' => 200],
             [['user_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['user_id' => 'id']],
         ];
     }

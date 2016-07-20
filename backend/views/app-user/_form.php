@@ -62,8 +62,7 @@ use kartik\widgets\FileInput;
 
     <?= $form->field($model, 'joined_at')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'sex')->textInput(['maxlength' => true]) ?>
-
+    <?= $form->field($model, 'sex')->radioList(array('M'=>'Male','F'=>'Female'))->label('Gender'); ?>
 
     <?=$form->field($model, 'religion_id')->widget(Select2::classname(), [
         'data' => $religions,
