@@ -4,6 +4,7 @@ namespace backend\controllers;
 
 use Yii;
 use common\models\Donation;
+use common\models\DonationType;
 use backend\models\DonationSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -70,6 +71,10 @@ class DontationController extends Controller
         } else {
             return $this->render('create', [
                 'model' => $model,
+                /*
+                 * passes an array of donation types
+                 * */
+                'donation_types'=> DonationType::getDonationTypes(true),
             ]);
         }
     }
