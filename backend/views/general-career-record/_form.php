@@ -2,10 +2,12 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
-
+use dosamigos\tinymce\TinyMce;
+use kartik\widgets\DatePicker;
 /* @var $this yii\web\View */
 /* @var $model common\models\GeneralCareerRecord */
 /* @var $form yii\widgets\ActiveForm */
+
 ?>
 
 <div class="general-career-record-form">
@@ -16,11 +18,29 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'organisation')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'description')->textarea(['rows' => 6]) ?>
+    <?= $form->field($model, 'description')->widget(TinyMce::className(), [
+        'options' => ['rows' => 6],
+        'language' => 'en_GB',
+        'clientOptions' => [
+            'menubar'=>false,
+            'toolbar' => "undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent "
+        ]
+    ]);?>
 
-    <?= $form->field($model, 'start_date')->textInput() ?>
 
-    <?= $form->field($model, 'end_date')->textInput() ?>
+    <?= $form->field($model, 'start_date')->widget(DatePicker::classname(), [
+        'options' => ['placeholder' => 'Enter Starting date ...'],
+        'pluginOptions' => [
+            'autoclose'=>true
+        ]
+    ])->label('Starting Date'); ?>
+
+    <?= $form->field($model, 'end_date')->widget(DatePicker::classname(), [
+        'options' => ['placeholder' => 'Enter Ending date ...'],
+        'pluginOptions' => [
+            'autoclose'=>true
+        ]
+    ])->label('Ending Date'); ?>
 
     <?= $form->field($model, 'user_id')->textInput() ?>
 
