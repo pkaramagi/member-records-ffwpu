@@ -3,6 +3,7 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use  kartik\widgets\Select2;
+use dosamigos\tinymce\TinyMce;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\Donation */
@@ -22,8 +23,14 @@ use  kartik\widgets\Select2;
         'options' => ['placeholder' => 'Select a Donation Type ...'],
     ])->label('Blessing Group'); ?>
 
-
-    <?= $form->field($model, 'description')->textarea(['rows' => 6]) ?>
+    <?= $form->field($model, 'description')->widget(TinyMce::className(), [
+        'options' => ['rows' => 6],
+        'language' => 'en_GB',
+        'clientOptions' => [
+            'menubar'=>false,
+            'toolbar' => "undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent "
+        ]
+    ]);?>
 
     <?= $form->field($model, 'user_id')->textInput() ?>
 
