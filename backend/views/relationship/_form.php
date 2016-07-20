@@ -2,6 +2,8 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use kartik\widgets\Select2;
+use dosamigos\tinymce\TinyMce;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\Relationship */
@@ -12,11 +14,27 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'relationship_type_id')->textInput() ?>
+    <?=$form->field($model, 'relationship_type_id')->widget(Select2::classname(), [
+        'data' => $relatitionship_types,
+        'options' => ['placeholder' => 'Select a blessing group ...'],
+        'pluginOptions' => [
+            'tags' => true,
+            'maximumInputLength' => 2
+        ],
+
+    ])->label('Type of Relationship'); ?>
 
     <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'remarks')->textarea(['rows' => 6]) ?>
+    <?= $form->field($model, 'remarks')->widget(TinyMce::className(), [
+        'options' => ['rows' => 6],
+        'language' => 'en_GB',
+        'clientOptions' => [
+            'menubar'=>false,
+            'toolbar' => "undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent "
+        ]
+    ]);?>
+
 
     <?= $form->field($model, 'user_id')->textInput() ?>
 
