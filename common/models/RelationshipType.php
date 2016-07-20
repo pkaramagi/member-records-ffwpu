@@ -51,4 +51,16 @@ class RelationshipType extends \yii\db\ActiveRecord
     {
         return $this->hasMany(Relationship::className(), ['relationship_type_id' => 'id']);
     }
+
+    /**
+     * returns an array or a yii active Query of relationship types
+     * @param boolean $arr
+     * @return array | \yii\db\ActiveQuery
+     */
+    public static function getRelationshipTypes($arr=false){
+        if($arr){
+            return \yii\helpers\ArrayHelper::map(static::find()->all(),'id','item');
+        }
+        return static::find()->all();
+    }
 }
