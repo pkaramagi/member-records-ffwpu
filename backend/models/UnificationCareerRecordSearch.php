@@ -19,7 +19,7 @@ class UnificationCareerRecordSearch extends UnificationCareerRecord
     {
         return [
             [['id', 'organisation_id', 'current', 'user_id'], 'integer'],
-            [['position', 'department', 'description', 'start_date', 'end_date'], 'safe'],
+            [['position', 'location', 'department', 'description', 'start_date', 'end_date'], 'safe'],
         ];
     }
 
@@ -68,6 +68,7 @@ class UnificationCareerRecordSearch extends UnificationCareerRecord
         ]);
 
         $query->andFilterWhere(['like', 'position', $this->position])
+            ->andFilterWhere(['like', 'location', $this->location])
             ->andFilterWhere(['like', 'department', $this->department])
             ->andFilterWhere(['like', 'description', $this->description]);
 

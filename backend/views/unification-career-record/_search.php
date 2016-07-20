@@ -21,9 +21,11 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'organisation_id') ?>
 
+    <?= $form->field($model, 'location') ?>
+
     <?= $form->field($model, 'department') ?>
 
-    <?= $form->field($model, 'description') ?>
+    <?php // echo $form->field($model, 'description') ?>
 
     <?php // echo $form->field($model, 'start_date') ?>
 

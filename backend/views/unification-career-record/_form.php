@@ -16,6 +16,8 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'organisation_id')->textInput() ?>
 
+    <?= $form->field($model, 'location')->textInput(['maxlength' => true]) ?>
+
     <?= $form->field($model, 'department')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'description')->textarea(['rows' => 6]) ?>

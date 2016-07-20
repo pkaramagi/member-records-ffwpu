@@ -31,6 +31,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'id',
             'position',
             'organisation_id',
+            'location',
             'department',
             'description:ntext',
             'start_date',
