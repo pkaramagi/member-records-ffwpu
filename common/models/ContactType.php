@@ -8,7 +8,7 @@ use Yii;
  * This is the model class for table "contact_type".
  *
  * @property integer $id
- * @property integer $name
+ * @property string $name
  *
  * @property Contact[] $contacts
  */
@@ -29,7 +29,7 @@ class ContactType extends \yii\db\ActiveRecord
     {
         return [
             [['name'], 'required'],
-            [['name'], 'integer'],
+            [['name'], 'string'],
             [['name'], 'unique'],
         ];
     }
@@ -51,5 +51,17 @@ class ContactType extends \yii\db\ActiveRecord
     public function getContacts()
     {
         return $this->hasMany(Contact::className(), ['contact_type_id' => 'id']);
+    }
+
+    /**
+     * Get all contacts
+     * @param boolean $arr
+     * @return array | \yii\db\ActiveQuery
+     */
+    public static function getContactTypes($arr=false){
+        if($arr){
+            return \yii\helpers\ArrayHelper::map(static::find()->all() ,'id','name');
+        }
+        return static::find()->all();
     }
 }

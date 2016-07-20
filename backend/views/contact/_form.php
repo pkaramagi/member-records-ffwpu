@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use kartik\widgets\Select2;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\Contact */
@@ -12,7 +13,15 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'contact_type_id')->textInput() ?>
+    <?=$form->field($model, 'contact_type_id')->widget(Select2::classname(), [
+        'data' => $contact_types,
+        'options' => ['placeholder' => 'Select Contact Type'],
+        'pluginOptions' => [
+            'tags' => true,
+            'maximumInputLength' => 2
+        ],
+
+    ])->label('Contact Type'); ?>
 
     <?= $form->field($model, 'value')->textInput(['maxlength' => true]) ?>
 
