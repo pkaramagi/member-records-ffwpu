@@ -8,7 +8,7 @@ use Yii;
  * This is the model class for table "relationship_type".
  *
  * @property integer $id
- * @property integer $name
+ * @property string $name
  *
  * @property Relationship[] $relationships
  */
@@ -29,7 +29,7 @@ class RelationshipType extends \yii\db\ActiveRecord
     {
         return [
             [['name'], 'required'],
-            [['name'], 'integer'],
+            [['name'], 'string'],
         ];
     }
 
