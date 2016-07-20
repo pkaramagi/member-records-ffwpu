@@ -31,7 +31,6 @@ $this->params['breadcrumbs'][] = $this->title;
             'id',
             'name',
             'institution',
-            'level',
             'date_of_completion',
             'date_of_start',
             'major',

@@ -16,8 +16,6 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'institution')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'level')->textInput(['maxlength' => true]) ?>
-
     <?= $form->field($model, 'date_of_completion')->textInput() ?>
 
     <?= $form->field($model, 'date_of_start')->textInput() ?>

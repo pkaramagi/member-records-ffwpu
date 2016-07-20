@@ -21,11 +21,9 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'institution') ?>
 
-    <?= $form->field($model, 'level') ?>
-
     <?= $form->field($model, 'date_of_completion') ?>
 
-    <?php // echo $form->field($model, 'date_of_start') ?>
+    <?= $form->field($model, 'date_of_start') ?>
 
     <?php // echo $form->field($model, 'major') ?>
 

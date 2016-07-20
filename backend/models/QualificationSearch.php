@@ -19,7 +19,7 @@ class QualificationSearch extends Qualification
     {
         return [
             [['id', 'user_id'], 'integer'],
-            [['name', 'institution', 'level', 'date_of_completion', 'date_of_start', 'major', 'remarks'], 'safe'],
+            [['name', 'institution', 'date_of_completion', 'date_of_start', 'major', 'remarks'], 'safe'],
         ];
     }
 
@@ -67,7 +67,6 @@ class QualificationSearch extends Qualification
 
         $query->andFilterWhere(['like', 'name', $this->name])
             ->andFilterWhere(['like', 'institution', $this->institution])
-            ->andFilterWhere(['like', 'level', $this->level])
             ->andFilterWhere(['like', 'major', $this->major])
             ->andFilterWhere(['like', 'remarks', $this->remarks]);
 
