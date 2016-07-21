@@ -12,5 +12,18 @@ use yii\web\AssetBundle;
 
 class AdminLTEAsset extends  AssetBundle
 {
+    public $sourcePath = '@vendor/almasaeed2010/adminlte/dist';
+    public $css = [
+        'css/AdminLTE.min.css',
+        'css/skin-blue.min.css',
+    ];
+    public $j = [
+        'js/app.min.js',
+    ];
+
+    public $depends = [
+        'yii\web\YiiAsset',
+        'yii\bootstrap\BootstrapAsset',
+    ];
 
 }
