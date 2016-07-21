@@ -17,7 +17,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <!-- disable heading <h1><?= Html::encode($this->title) ?></h1> -->
     <div class="login-box">
         <div class="login-logo">
-            <a href="../../index2.html"><b>FFWPU</b></a>
+            <a href="../../index2.html"><?= Html::img('@web/img/FFWPU-EA-logo-300.png', ['class' => '','alt'=>'FFPWU EA Logo']); ?></a>
         </div>
         <!-- /.login-logo -->
         <div class="login-box-body">
@@ -73,8 +73,6 @@ $this->params['breadcrumbs'][] = $this->title;
                     </div>
                     <!-- /.social-auth-links -->
 
-            <a href="#">I forgot my password</a><br>
-            <!--   <a href="register.html" class="text-center">Register a new membership</a> -->
 
         </div>
         <!-- /.login-box-body -->
