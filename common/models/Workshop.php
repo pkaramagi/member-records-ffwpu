@@ -39,8 +39,8 @@ class Workshop extends \yii\db\ActiveRecord
             [['workshop_type_id', 'title', 'theme', 'location', 'date_started', 'date_end', 'details'], 'required'],
             [['workshop_type_id'], 'integer'],
             [['date_started', 'date_end'], 'safe'],
-            [['details'], 'string'],
-            [['title', 'theme', 'location'], 'string', 'max' => 200],
+            [['details','theme'], 'string'],
+            [['title', 'location'], 'string', 'max' => 200],
             [['workshop_type_id'], 'exist', 'skipOnError' => true, 'targetClass' => WorkshopType::className(), 'targetAttribute' => ['workshop_type_id' => 'id']],
         ];
     }
