@@ -15,7 +15,7 @@ class AdminLTEAsset extends  AssetBundle
     public $sourcePath = '@vendor/almasaeed2010/adminlte/dist';
     public $css = [
         'css/AdminLTE.min.css',
-        'css/skin-blue.min.css',
+        'css/skins/skin-blue.min.css',
     ];
     public $j = [
         'js/app.min.js',
