@@ -29,7 +29,7 @@ use dosamigos\tinymce\TinyMce;
     <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'location')->textInput(['maxlength' => true]) ?>
-    
+
     <?= $form->field($model, 'theme')->widget(TinyMce::className(), [
         'options' => ['rows' => 6],
         'language' => 'en_GB',

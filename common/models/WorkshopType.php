@@ -9,7 +9,7 @@ use yii\helpers\ArrayHelper;
  * This is the model class for table "workshop_type".
  *
  * @property integer $id
- * @property integer $type
+ * @property string $name
  *
  * @property Workshop[] $workshops
  */
@@ -29,9 +29,9 @@ class WorkshopType extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['type'], 'required'],
-            [['type'], 'integer'],
-            [['type'], 'unique'],
+            [['name'], 'required'],
+            [['name'], 'string', 'max' => 200],
+            [['name'], 'unique'],
         ];
     }
 
@@ -42,7 +42,7 @@ class WorkshopType extends \yii\db\ActiveRecord
     {
         return [
             'id' => Yii::t('app', 'ID'),
-            'type' => Yii::t('app', 'Type'),
+            'name' => Yii::t('app', 'Name'),
         ];
     }
 
@@ -61,7 +61,7 @@ class WorkshopType extends \yii\db\ActiveRecord
      */
     public static function getWorkshopTypes($arr=false){
         if($arr){
-            return ArrayHelper::map(static::find()->all(),'id','name');
+            return ArrayHelper::map(static::find()->addOrderBy('id')->all(),'id','name');
         }
         return static::find()->all();
     }
