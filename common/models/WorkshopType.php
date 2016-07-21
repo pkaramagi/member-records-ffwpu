@@ -3,6 +3,7 @@
 namespace common\models;
 
 use Yii;
+use yii\helpers\ArrayHelper;
 
 /**
  * This is the model class for table "workshop_type".
@@ -51,5 +52,17 @@ class WorkshopType extends \yii\db\ActiveRecord
     public function getWorkshops()
     {
         return $this->hasMany(Workshop::className(), ['workshop_type_id' => 'id']);
+    }
+
+    /**
+     * Returns an array or activeQuery object of workshoptypes
+     * @param $arr
+     * @return array | \yii\db\ActiveQuery
+     */
+    public static function getWorkshopTypes($arr=false){
+        if($arr){
+            return ArrayHelper::map(static::find()->all(),'id','name');
+        }
+        return static::find()->all();
     }
 }

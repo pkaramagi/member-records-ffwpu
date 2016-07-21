@@ -1,9 +1,10 @@
 <?php
 
-namespace backend\models;
+namespace backend\controllers;
 
 use Yii;
 use common\models\Workshop;
+use common\models\WorkshopType;
 use backend\models\WorkshopSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -70,6 +71,7 @@ class WorkshopController extends Controller
         } else {
             return $this->render('create', [
                 'model' => $model,
+                'workshop_types'=> WorkshopType::getWorkshopTypes(true),
             ]);
         }
     }
