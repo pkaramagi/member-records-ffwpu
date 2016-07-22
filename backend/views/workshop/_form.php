@@ -12,10 +12,10 @@ use dosamigos\tinymce\TinyMce;
 /* @var $workshop_types array*/
 ?>
 
-<div class="workshop-form">
+<div class="workshop-form box box-primary">
 
     <?php $form = ActiveForm::begin(); ?>
-
+    <div class="box-body">
     <?=$form->field($model, 'workshop_type_id')->widget(Select2::classname(), [
         'data' => $workshop_types,
         'options' => ['placeholder' => 'Select Type of Workshop ...'],
@@ -62,9 +62,8 @@ use dosamigos\tinymce\TinyMce;
         ]
     ])->label('Ending Date'); ?>
 
-
-
-    <div class="form-group">
+	</div>
+    <div class="form-group box-footer">
         <?= Html::submitButton($model->isNewRecord ? Yii::t('app', 'Create') : Yii::t('app', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>
 

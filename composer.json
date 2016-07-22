@@ -21,7 +21,10 @@
 		"yiisoft/yii2-jui": "~2.0.0",
         "kartik-v/yii2-widgets": "*",
         "2amigos/yii2-tinymce-widget": "~1.1",
-        "almasaeed2010/adminlte": "~2.0"
+        "almasaeed2010/adminlte": "~2.0",
+        "bower-asset/font-awesome": "~4.6.3",
+        "bower-asset/ionicons": "~2.0.1",
+        "bower-asset/adminlte": "~2.0"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",

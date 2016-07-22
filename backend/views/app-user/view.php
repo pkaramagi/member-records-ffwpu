@@ -10,7 +10,7 @@ $this->title = $model->last_name.' '.$model->first_name;
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'App Users'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="app-user-view">
+<div class="app-user-view ">
 
     <!--<h1><?= Html::encode($this->title) ?></h1> -->
 
@@ -25,7 +25,7 @@ $this->params['breadcrumbs'][] = $this->title;
         ]) ?>
     </p>
 
-    <div class="app-user-index box box-primary">
+    <div class="app-user-view  box box-primary">
         <!-- /.box-header -->
         <div class="box-header with-border">
             <h3 class="box-title">Details of <?= Html::encode($this->title) ?></h3>

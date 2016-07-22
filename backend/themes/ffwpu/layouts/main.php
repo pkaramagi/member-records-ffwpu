@@ -5,6 +5,7 @@
 
 use backend\assets\AppAsset;
 use yii\helpers\Html;
+use yii\helpers\Url;
 use yii\widgets\Breadcrumbs;
 use common\widgets\Alert;
 
@@ -29,9 +30,9 @@ AppAsset::register($this);
         <!-- Logo -->
         <a href="index2.html" class="logo">
             <!-- mini logo for sidebar mini 50x50 pixels -->
-            <span class="logo-mini"><b>A</b>LT</span>
+            <span class="logo-mini"><?= Html::img('@web/img/ffwpu-white-50.png', ['class' => '','alt'=>'FFPWU EA Logo']); ?></span>
             <!-- logo for regular state and mobile devices -->
-            <span class="logo-lg"><b>Admin</b>LTE</span>
+            <span class="logo-lg"><?= Html::img('@web/img/FFWPU-EA-white.png', ['class' => '','alt'=>'FFPWU EA Logo']); ?></span>
         </a>
 
         <!-- Header Navbar -->
@@ -223,19 +224,36 @@ AppAsset::register($this);
 
             <!-- Sidebar Menu -->
             <ul class="sidebar-menu">
-                <li class="header">HEADER</li>
+                <li class="header">MAIN NAVIGATION</li>
                 <!-- Optionally, you can add icons to the links -->
-                <li class="active"><a href="#"><i class="fa fa-link"></i> <span>Link</span></a></li>
-                <li><a href="#"><i class="fa fa-link"></i> <span>Another Link</span></a></li>
+				<?php /*urls for app-user crud*/?>
                 <li class="treeview">
-                    <a href="#"><i class="fa fa-link"></i> <span>Multilevel</span>
+                    <a href="#"><i class="fa fa-user" aria-hidden="true"></i><span>Users</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
                     </a>
+					
                     <ul class="treeview-menu">
-                        <li><a href="#">Link in level 2</a></li>
-                        <li><a href="#">Link in level 2</a></li>
+                        <li><a href="<?php echo Url::toRoute(['app-user/create']);?>"><i class="fa fa-user-plus" aria-hidden="true"></i>Create</a></li>
+                        <li><a href="<?php echo Url::toRoute(['app-user/index']);?>"><i class="fa fa-th-list" aria-hidden="true"></i>List</a></li>
+						<li><a href="<?php echo Url::toRoute(['app-user/update']);?>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></i>Update</a></li>
+                        
+                    </ul>
+                </li>
+				<?php /*urls for workshops*/?>
+				<li class="treeview">
+                    <a href="#"><i class="fa fa-book" aria-hidden="true"></i><span>Workshops</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+                    </a>
+					
+                    <ul class="treeview-menu">
+                        <li><a href="<?php echo Url::toRoute(['workshop/create']);?>"><i class="fa fa-plus-circle" aria-hidden="true"></i></i>Create</a></li>
+                        <li><a href="<?php echo Url::toRoute(['workshop/index']);?>"><i class="fa fa-th-list" aria-hidden="true"></i>List</a></li>
+						<li><a href="<?php echo Url::toRoute(['workshop/update']);?>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></i>Update</a></li>
+                        
                     </ul>
                 </li>
             </ul>
@@ -280,7 +298,7 @@ AppAsset::register($this);
             Anything you want
         </div>
         <!-- Default to the left -->
-        <strong>Copyright &copy; 2016 <a href="#">Company</a>.</strong> All rights reserved.
+        <strong>Copyright &copy; <?=date('Y') ?> <a href="#">FFWPU East Africa </a>.</strong> All rights reserved.
     </footer>
 
     <!-- Control Sidebar -->

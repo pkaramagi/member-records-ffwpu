@@ -109,3 +109,55 @@ a.desc:after {
 .nav > li > form > button:hover {
     text-decoration: none;
 }
+
+
+/*Admin css*/
+/* Logo */
+.logo-mini img{
+    width: 30px;
+}
+.logo-lg img{
+    width: 180px;
+}
+
+/*Select 2 widget*/
+
+.select2-container .select2-selection--single .select2-selection__rendered {
+    display: inline;
+}
+
+.select2-container--krajee .select2-selection,.select2-container--krajee .select2-search--dropdown .select2-search__field,.select2-container--krajee .select2-selection--multiple .select2-selection__choice {
+    border-radius: 0;   
+}
+
+.select2-container--krajee .select2-search--dropdown .select2-search__field {
+    background: #fff url('../img/search.png') right 3px top 7px no-repeat;
+}
+
+has-success .select2-container--open .select2-selection, .has-success .select2-container--krajee.select2-container--focus .select2-selection {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    
+}
+
+.select2-container--krajee .select2-selection--single .select2-selection__arrow {
+    border: none;
+    /* border-left: 1px solid #aaa; */
+}
+
+.has-success.select2-container--krajee .select2-dropdown, .has-success .select2-container--krajee .select2-selection ,.has-success .select2-container--open .select2-selection, .has-success .select2-container--krajee.select2-container--focus .select2-selection { 
+    border-color: #00a65a;
+	
+}
+
+.select2-container--krajee .select2-results__option--highlighted[aria-selected] {
+    background-color: #3c8dbc;
+    color: #fff;
+}
+/*select2 ends here*/
+
+/*box adminlte*/
+.box {
+    position: relative;
+    border-radius: 0;
+}	
