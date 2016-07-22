@@ -10,10 +10,10 @@ use kartik\widgets\FileInput;
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-<div class="app-user-form">
+<div class="app-user-form box box-primary">
 
     <?php $form = ActiveForm::begin(); ?>
-
+<div class="box-body">
     <?= $form->field($model, 'first_name')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'middle_name')->textInput(['maxlength' => true]) ?>
@@ -74,8 +74,8 @@ use kartik\widgets\FileInput;
         'data' => $generations,
         'options' => ['placeholder' => 'Generation ...'],
     ])->label('Generation'); ?>
-
-    <div class="form-group">
+</div>
+    <div class="form-group box-footer">
         <?= Html::submitButton($model->isNewRecord ? Yii::t('app', 'Create') : Yii::t('app', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>
 

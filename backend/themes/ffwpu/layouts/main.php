@@ -249,7 +249,7 @@ AppAsset::register($this);
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                Page Header
+                <?= Html::encode($this->title) ?>
                 <small>Optional description</small>
             </h1>
 
