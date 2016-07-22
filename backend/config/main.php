@@ -21,6 +21,15 @@ return [
             'enableAutoLogin' => true,
             'identityCookie' => ['name' => '_identity-backend', 'httpOnly' => true],
         ],
+        'view' => [
+            'theme' => [
+                'basePath' => '@backend/themes/ffwpu',
+                'baseUrl' => '@web/themes/ffwpu',
+                'pathMap' => [
+                    '@backend/views' => '@backend/themes/ffwpu',
+                ],
+            ],
+        ],
         'session' => [
             // this is the name of the session cookie used for login on the backend
             'name' => 'advanced-backend',
