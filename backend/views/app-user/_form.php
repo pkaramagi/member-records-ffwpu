@@ -13,7 +13,11 @@ use kartik\widgets\FileInput;
 <div class="app-user-form box box-primary">
 
 
-    <?php $form = ActiveForm::begin(); ?>
+    <?php $form = ActiveForm::begin(
+			[
+				'options'=>['enctype'=>'multipart/form-data'], // important
+			]
+		); ?>
     <div class="box-body">
         <?= $form->field($model, 'first_name')->textInput(['maxlength' => true]) ?>
 

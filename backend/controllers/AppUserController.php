@@ -8,9 +8,10 @@ use common\models\BlessingGroup;
 use common\models\Religion;
 use common\models\Generation;
 use backend\models\AppUserSearch;
+use backend\models\UploadFile;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
-
+use yii\web\UploadedFile;
 use yii\filters\VerbFilter;
 use yii\helpers\ArrayHelper;
 
@@ -70,9 +71,32 @@ class AppUserController extends Controller
     {
 
         $model = new AppUser();
-
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id,]);
+		
+        if ($model->load(Yii::$app->request->post())) {
+			// get the uploaded file instance. for multiple file uploads
+			// the following data will return an array
+			$model->imageFile = UploadedFile::getInstance($model, 'picture');
+			print_r($model->imageFile);
+			//get file extension
+			$ext = $model->imageFile->extension;
+			
+			// generate a unique file name
+			$filename = Yii::$app->security->generateRandomString().".{$ext}";
+            $model->picture = $filename;
+			
+			//upload folder path
+			//$imagePath = Yii::getAlias("@webroot").'/uploads';   
+			
+			//$miagePath = $imagePath.$model->picture;
+			
+			if($model->save()){
+				//$image->saveAs($imagePath);
+				$model->upload($filename);
+				return $this->redirect(['view', 'id'=>$model->id]);
+			}
+			
+			
+            
         } else {
             return $this->render('create', [
                 'model' => $model,
