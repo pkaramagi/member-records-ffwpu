@@ -10,14 +10,21 @@ use yii\widgets\Pjax;
 $this->title = Yii::t('app', 'Awards');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="award-index">
-
-    <h1><?= Html::encode($this->title) ?></h1>
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
-
+<?php /*button for creating an award*/?>
     <p>
         <?= Html::a(Yii::t('app', 'Create Award'), ['create'], ['class' => 'btn btn-success']) ?>
     </p>
+<div class="award-index box box-primary">
+
+    <!--<h1><?= Html::encode($this->title) ?></h1> -->
+    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
+
+    <!-- .box-header -->
+    <div class="box-header with-border">
+        <h3 class="box-title">List of Members</h3>
+    </div>
+    <!-- /.box-header -->
+    <div class="box-body">
 <?php Pjax::begin(); ?>    <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
@@ -33,4 +40,4 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
-<?php Pjax::end(); ?></div>
+<?php Pjax::end(); ?></div></div>

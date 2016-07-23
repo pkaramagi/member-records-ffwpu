@@ -256,6 +256,21 @@ AppAsset::register($this);
                         
                     </ul>
                 </li>
+				<?php /*urls for awards*/?>
+				<li class="treeview">
+                    <a href="#"><i class="fa fa-trophy" aria-hidden="true"></i><span>Awards</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+                    </a>
+					
+                    <ul class="treeview-menu">
+                        <li><a href="<?php echo Url::toRoute(['award/create']);?>"><i class="fa fa-plus-circle" aria-hidden="true"></i></i>Create</a></li>
+                        <li><a href="<?php echo Url::toRoute(['award/index']);?>"><i class="fa fa-th-list" aria-hidden="true"></i>List</a></li>
+						<li><a href="<?php echo Url::toRoute(['award/update']);?>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></i>Update</a></li>
+                        
+                    </ul>
+                </li>
             </ul>
             <!-- /.sidebar-menu -->
         </section>
