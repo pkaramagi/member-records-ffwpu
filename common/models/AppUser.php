@@ -11,7 +11,6 @@ use Yii;
  * @property string $first_name
  * @property string $middle_name
  * @property string $last_name
- * @property string $username
  * @property string $nationality
  * @property integer $blessing_group_id
  * @property string $date_of_birth
@@ -67,10 +66,10 @@ class AppUser extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['first_name', 'middle_name', 'last_name', 'username', 'nationality', 'blessing_group_id', 'date_of_birth', 'spiritual_date_of_birth', 'spiritual_parent', 'passport', 'picture', 'joined_at', 'sex', 'religion_id', 'generation_id'], 'required'],
+            [['first_name', 'middle_name', 'last_name', 'nationality', 'blessing_group_id', 'date_of_birth', 'spiritual_date_of_birth', 'spiritual_parent', 'passport', 'picture', 'joined_at', 'sex', 'religion_id', 'generation_id'], 'required'],
             [['blessing_group_id', 'religion_id', 'generation_id'], 'integer'],
             [['date_of_birth', 'spiritual_date_of_birth'], 'safe'],
-            [['first_name', 'middle_name', 'last_name', 'username', 'nationality', 'passport','joined_at'], 'string', 'max' => 200],
+            [['first_name', 'middle_name', 'last_name', 'nationality', 'passport','joined_at'], 'string', 'max' => 200],
             [['spiritual_parent'], 'string', 'max' => 100],
 			//image is a temporary attribute for image upload
 			[['imageFile'],'safe'],
@@ -285,5 +284,9 @@ class AppUser extends \yii\db\ActiveRecord
             return false;
         }
     }
+	
+	public static function getUsers(){
+		return \yii\helpers\ArrayHelper::map(static::find()->all(),'id','first_name');
+	}
 
 }

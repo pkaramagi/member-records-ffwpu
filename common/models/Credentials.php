@@ -21,13 +21,17 @@ use yii\web\IdentityInterface;
  * @property integer $created_at
  * @property integer $updated_at
  *
- * @property User $user
+ * @property AppUser $user
  */
 class Credentials extends \yii\db\ActiveRecord implements IdentityInterface
 {
-    /**
+    public $pass;
+    public $userProfile;
+	
+	/**
      * @inheritdoc
      */
+	
     public static function tableName()
     {
         return 'credentials';
@@ -39,9 +43,9 @@ class Credentials extends \yii\db\ActiveRecord implements IdentityInterface
     public function rules()
     {
         return [
-            [['username', 'auth_key', 'password_hash', 'email', 'user_id', 'role', 'created_at', 'updated_at'], 'required'],
+            [['username', 'auth_key', 'pass', 'email', 'user_id', 'role'], 'required'],
             [['user_id', 'role', 'status', 'created_at', 'updated_at'], 'integer'],
-            [['username', 'password_hash', 'password_reset_token', 'email', 'email_activation_token'], 'string', 'max' => 255],
+            [['username','pass','password_hash', 'password_reset_token', 'email', 'email_activation_token'], 'string', 'max' => 255],
             [['auth_key'], 'string', 'max' => 32],
             [['username'], 'unique'],
             [['email'], 'unique'],
@@ -78,8 +82,10 @@ class Credentials extends \yii\db\ActiveRecord implements IdentityInterface
      */
     public function getUser()
     {
-        return $this->hasOne(User::className(), ['id' => 'user_id']);
+        return $this->hasOne(AppUser::className(), ['id' => 'user_id']);
     }
+
+
 
 
     /*
@@ -89,7 +95,7 @@ class Credentials extends \yii\db\ActiveRecord implements IdentityInterface
      * @param return static|null */
 
     public static function findByUsername($username){
-        return static::findByUsername(['username'=>$username]);
+        return static::findOne(['username'=>$username]);
     }
 
     /**
@@ -235,6 +241,10 @@ class Credentials extends \yii\db\ActiveRecord implements IdentityInterface
     public function removePasswordResetToken()
     {
         $this->password_reset_token = null;
+    }
+
+    public function getUserProfile(){
+        return AppUser::findOne($this->id);
     }
 
 }

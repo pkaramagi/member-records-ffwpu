@@ -4,7 +4,8 @@ namespace backend\controllers;
 
 use Yii;
 use common\models\Credentials;
-use backend\models\Credentials as CredentialsSearch;
+use common\models\AppUser;
+use backend\models\CredentialsSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -64,12 +65,18 @@ class CredentialsController extends Controller
     public function actionCreate()
     {
         $model = new Credentials();
-
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
-        } else {
+		
+        if ($model->load(Yii::$app->request->post())){
+			        $model->setPassword($model->pass);
+					$model->generateAuthKey();
+		   if($model->save()) {
+				return $this->redirect(['view', 'id' => $model->id]);
+		   }
+        }
+        else {
             return $this->render('create', [
                 'model' => $model,
+				'users' => AppUser::getUsers(),
             ]);
         }
     }

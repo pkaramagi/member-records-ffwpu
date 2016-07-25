@@ -2,7 +2,6 @@
 
 /* @var $this \yii\web\View */
 /* @var $content string */
-
 use backend\assets\AppAsset;
 use yii\helpers\Html;
 use yii\helpers\Url;
@@ -144,17 +143,23 @@ AppAsset::register($this);
                         <!-- Menu Toggle Button -->
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             <!-- The user image in the navbar-->
-                            <img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
+                            <?php
+                                $image = Yii::$app->user->identity->getUserProfile()->picture;
+                                $fullname = Yii::$app->
+                                    user->identity->getUserProfile()->first_name .
+                                    Yii::$app->user->identity->getUserProfile()->last_name;
+
+                            ?>
+                            <?= Html::img('@web/uploads/' . $image, ['class' => 'user-image','alt'=>'User Image']); ?>
                             <!-- hidden-xs hides the username on small devices so only the image appears. -->
-                            <span class="hidden-xs">Alexander Pierce</span>
+                            <span class="hidden-xs"> <?=$fullname ?> </span>
                         </a>
                         <ul class="dropdown-menu">
                             <!-- The user image in the menu -->
                             <li class="user-header">
-                                <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
-
+                                <?= Html::img('@web/uploads/' . $image, ['class' => 'img-circle','alt'=>'User Image']); ?>
                                 <p>
-                                    Alexander Pierce - Web Developer
+                                    <?php ?>
                                     <small>Member since Nov. 2012</small>
                                 </p>
                             </li>
@@ -201,7 +206,9 @@ AppAsset::register($this);
             <!-- Sidebar user panel (optional) -->
             <div class="user-panel">
                 <div class="pull-left image">
-                    <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+
+                    <?= Html::img('@web/uploads/' . $image, ['class' => 'img-circle','alt'=>'User Image']); ?>
+
                 </div>
                 <div class="pull-left info">
                     <p>Alexander Pierce</p>

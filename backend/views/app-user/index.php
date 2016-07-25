@@ -33,7 +33,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'first_name',
                 'middle_name',
                 'last_name',
-                'username',
+          
                 // 'nationality',
                 // 'blessing_group_id',
                 // 'date_of_birth',

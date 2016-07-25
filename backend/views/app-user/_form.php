@@ -25,8 +25,6 @@ use kartik\widgets\FileInput;
 
         <?= $form->field($model, 'last_name')->textInput(['maxlength' => true]) ?>
 
-        <?= $form->field($model, 'username')->textInput(['maxlength' => true]) ?>
-
         <?=$form->field($model, 'nationality')->widget(Select2::classname(), [
             'data' => $model->getNationalities(),
             'options' => ['placeholder' => 'Nationality ...'],

@@ -19,7 +19,7 @@ class AppUserSearch extends AppUser
     {
         return [
             [['id', 'blessing_group_id', 'religion_id', 'generation_id'], 'integer'],
-            [['first_name', 'middle_name', 'last_name', 'username', 'nationality', 'date_of_birth', 'spiritual_date_of_birth', 'spiritual_parent', 'passport', 'picture', 'joined_at', 'sex'], 'safe'],
+            [['first_name', 'middle_name', 'last_name', 'nationality', 'date_of_birth', 'spiritual_date_of_birth', 'spiritual_parent', 'passport', 'picture', 'joined_at', 'sex'], 'safe'],
         ];
     }
 
@@ -70,7 +70,6 @@ class AppUserSearch extends AppUser
         $query->andFilterWhere(['like', 'first_name', $this->first_name])
             ->andFilterWhere(['like', 'middle_name', $this->middle_name])
             ->andFilterWhere(['like', 'last_name', $this->last_name])
-            ->andFilterWhere(['like', 'username', $this->username])
             ->andFilterWhere(['like', 'nationality', $this->nationality])
             ->andFilterWhere(['like', 'spiritual_parent', $this->spiritual_parent])
             ->andFilterWhere(['like', 'passport', $this->passport])

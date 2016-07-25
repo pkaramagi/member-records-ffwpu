@@ -5,12 +5,12 @@ namespace backend\models;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use common\models\Credentials as CredentialsModel;
+use common\models\Credentials;
 
 /**
  * Credentials represents the model behind the search form about `common\models\Credentials`.
  */
-class Credentials extends CredentialsModel
+class CredentialsSearch extends Credentials
 {
     /**
      * @inheritdoc

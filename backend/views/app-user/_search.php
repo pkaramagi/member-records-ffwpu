@@ -23,8 +23,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'last_name') ?>
 
-    <?= $form->field($model, 'username') ?>
-
+ 
     <?php // echo $form->field($model, 'nationality') ?>
 
     <?php // echo $form->field($model, 'blessing_group_id') ?>
