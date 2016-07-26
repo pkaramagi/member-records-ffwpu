@@ -157,8 +157,10 @@ AppAsset::register($this);
                         <ul class="dropdown-menu">
                             <!-- The user image in the menu -->
                             <li class="user-header">
+								<?php /*User avatar in the menu*/?>
                                 <?= Html::img('@web/uploads/' . $image, ['class' => 'img-circle','alt'=>'User Image']); ?>
                                 <p>
+									<?php /*User , fullname*/ ?>
                                     <span class="hidden-xs"> <?= $fullname ?> </span>
                                     <small>Super Admin</small>
                                 </p>
@@ -184,7 +186,7 @@ AppAsset::register($this);
                                     <a href="#" class="btn btn-default btn-flat">Profile</a>
                                 </div>
                                 <div class="pull-right">
-									<?php /* Sign out button*/ ?>
+									<?php /* Sign out button, packaged like a button*/ ?>
 									<?= Html::beginForm(['/site/logout'], 'post')
 										. Html::submitButton(
 											'Sign Out',

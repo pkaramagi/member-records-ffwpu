@@ -39,7 +39,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     'first_name',
                     'middle_name',
                     'last_name',
-                    'username',
+                   // 'username',
                     'nationality',
                     [                      // the blessing group of the model
                         'label' => 'Blessing Group',

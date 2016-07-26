@@ -125,6 +125,12 @@ class AppUserController extends Controller
         } else {
             return $this->render('update', [
                 'model' => $model,
+				/*
+                *  blessing-group, religions, generation arrays for  auto complete
+                 * */
+                'blessing_groups'=>BlessingGroup::getBlessingGroups(true),
+                'religions'=>Religion::getReligions(true),
+                'generations'=> Generation::getGenerations(true),
             ]);
         }
     }
