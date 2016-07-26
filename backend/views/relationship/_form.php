@@ -10,9 +10,10 @@ use dosamigos\tinymce\TinyMce;
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-<div class="relationship-form">
+<div class="relationship-form box box-primary">
 
     <?php $form = ActiveForm::begin(); ?>
+    <div class="box-body">
 
     <?=$form->field($model, 'relationship_type_id')->widget(Select2::classname(), [
         'data' => $relationship_types,
@@ -40,7 +41,8 @@ use dosamigos\tinymce\TinyMce;
 
     <?= $form->field($model, 'related_user_id')->textInput() ?>
 
-    <div class="form-group">
+    </div>
+    <div class="form-group box-footer">
         <?= Html::submitButton($model->isNewRecord ? Yii::t('app', 'Create') : Yii::t('app', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>
 

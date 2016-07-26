@@ -4,6 +4,7 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use dosamigos\tinymce\TinyMce;
 use kartik\widgets\DatePicker;
+use kartik\widgets\Select2;
 /* @var $this yii\web\View */
 /* @var $model common\models\GeneralCareerRecord */
 /* @var $form yii\widgets\ActiveForm */
@@ -44,7 +45,15 @@ use kartik\widgets\DatePicker;
         ]
     ])->label('Ending Date'); ?>
 
-    <?= $form->field($model, 'user_id')->textInput() ?>
+ 	<?=$form->field($model, 'user_id')->widget(Select2::classname(), [
+            'data' => $users ,
+            'options' => ['placeholder' => 'Select a User'],
+            'pluginOptions' => [
+                'tags' => true,
+                'maximumInputLength' => 2
+            ],
+
+        ])->label('Which member does this Career Record belong to ?'); ?>	
 
     </div>
     <div class="form-group box-footer">

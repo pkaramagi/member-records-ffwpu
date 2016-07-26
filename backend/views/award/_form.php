@@ -27,7 +27,7 @@ use kartik\widgets\Select2;
             'toolbar' => "undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent "
         ]
     ]);?>
-	        <?=$form->field($model, 'user_id')->widget(Select2::classname(), [
+	<?=$form->field($model, 'user_id')->widget(Select2::classname(), [
             'data' => $users ,
             'options' => ['placeholder' => 'Select a User'],
             'pluginOptions' => [
