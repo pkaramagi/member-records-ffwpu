@@ -4,6 +4,7 @@ namespace backend\controllers;
 
 use Yii;
 use common\models\CertifiedQualification;
+use common\models\AppUser;
 use backend\models\CertifiedQualificationSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -70,6 +71,7 @@ class CertifiedQualificationController extends Controller
         } else {
             return $this->render('create', [
                 'model' => $model,
+				'users' => AppUser::getUsers(),
             ]);
         }
     }
@@ -89,6 +91,7 @@ class CertifiedQualificationController extends Controller
         } else {
             return $this->render('update', [
                 'model' => $model,
+				'users' => AppUser::getUsers(),
             ]);
         }
     }

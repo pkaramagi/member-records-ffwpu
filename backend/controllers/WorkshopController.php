@@ -91,6 +91,7 @@ class WorkshopController extends Controller
         } else {
             return $this->render('update', [
                 'model' => $model,
+				'workshop_types'=> WorkshopType::getWorkshopTypes(true),
             ]);
         }
     }

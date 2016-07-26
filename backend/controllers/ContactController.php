@@ -5,6 +5,7 @@ namespace backend\controllers;
 use Yii;
 use common\models\Contact;
 use common\models\ContactType;
+use common\models\AppUser;
 use backend\models\ContactSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -72,6 +73,7 @@ class ContactController extends Controller
             return $this->render('create', [
                 'model' => $model,
                 'contact_types'=> ContactType::getContactTypes(true),
+				'users' => AppUser::getUsers(),
             ]);
         }
     }
@@ -91,6 +93,7 @@ class ContactController extends Controller
         } else {
             return $this->render('update', [
                 'model' => $model,
+				'users' => AppUser::getUsers(),
             ]);
         }
     }

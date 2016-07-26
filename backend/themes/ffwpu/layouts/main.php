@@ -216,7 +216,7 @@ AppAsset::register($this);
             <!-- Sidebar user panel (optional) -->
             <div class="user-panel">
                 <div class="pull-left image">
-
+					<?php /* User avatar in the side */ ?>
                     <?= Html::img('@web/uploads/' . $image, ['class' => 'img-circle','alt'=>'User Image']); ?>
 
                 </div>
@@ -387,9 +387,9 @@ AppAsset::register($this);
                     </a>
 					
                     <ul class="treeview-menu">
-                        <li><a href="<?php echo Url::toRoute(['foreign-language/create']);?>"><i class="fa fa-plus-circle" aria-hidden="true"></i></i>Create</a></li>
-                        <li><a href="<?php echo Url::toRoute(['foreign-language/index']);?>"><i class="fa fa-th-list" aria-hidden="true"></i>List</a></li>
-						<li><a href="<?php echo Url::toRoute(['foreign-language/update']);?>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></i>Update</a></li>
+                        <li><a href="<?php echo Url::toRoute(['foreign-languages/create']);?>"><i class="fa fa-plus-circle" aria-hidden="true"></i></i>Create</a></li>
+                        <li><a href="<?php echo Url::toRoute(['foreign-languages/index']);?>"><i class="fa fa-th-list" aria-hidden="true"></i>List</a></li>
+						<li><a href="<?php echo Url::toRoute(['foreign-languages/update']);?>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></i>Update</a></li>
                         
                     </ul>
                 </li>

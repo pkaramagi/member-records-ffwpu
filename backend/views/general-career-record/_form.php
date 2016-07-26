@@ -10,9 +10,11 @@ use kartik\widgets\DatePicker;
 
 ?>
 
-<div class="general-career-record-form">
+<div class="general-career-record-form box box-primary">
 
     <?php $form = ActiveForm::begin(); ?>
+	
+	<div class="box-body">
 
     <?= $form->field($model, 'position')->textInput(['maxlength' => true]) ?>
 
@@ -44,7 +46,8 @@ use kartik\widgets\DatePicker;
 
     <?= $form->field($model, 'user_id')->textInput() ?>
 
-    <div class="form-group">
+    </div>
+    <div class="form-group box-footer">
         <?= Html::submitButton($model->isNewRecord ? Yii::t('app', 'Create') : Yii::t('app', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>
 

@@ -10,9 +10,11 @@ use dosamigos\tinymce\TinyMce;
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-<div class="donation-form">
+<div class="donation-form box box-primary">
 
     <?php $form = ActiveForm::begin(); ?>
+	
+	<div class="box-body">
 
     <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
 
@@ -32,12 +34,15 @@ use dosamigos\tinymce\TinyMce;
         ]
     ]);?>
 
-    <?= $form->field($model, 'user_id')->textInput() ?>
-
-    <div class="form-group">
+	<?=$form->field($model, 'user_id')->widget(Select2::classname(), [
+            'data' => $users,
+            'options' => ['placeholder' => 'User ...'],
+        ])->label('User'); ?>
+    </div>
+    <div class="form-group box-footer">
         <?= Html::submitButton($model->isNewRecord ? Yii::t('app', 'Create') : Yii::t('app', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>
-
+	
     <?php ActiveForm::end(); ?>
 
 </div>

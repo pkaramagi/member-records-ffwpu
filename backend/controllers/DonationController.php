@@ -4,6 +4,7 @@ namespace backend\controllers;
 
 use Yii;
 use common\models\Donation;
+use common\models\AppUser;
 use common\models\DonationType;
 use backend\models\DonationSearch;
 use yii\web\Controller;
@@ -72,9 +73,10 @@ class DonationController extends Controller
             return $this->render('create', [
                 'model' => $model,
                 /*
-                 * passes an array of donation types
+                 * passes an array of donation types and users
                  * */
                 'donation_types'=> DonationType::getDonationTypes(true),
+				'users' => AppUser::getUsers(),
             ]);
         }
     }
