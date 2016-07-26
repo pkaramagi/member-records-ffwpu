@@ -152,18 +152,18 @@ AppAsset::register($this);
                             ?>
                             <?= Html::img('@web/uploads/' . $image, ['class' => 'user-image','alt'=>'User Image']); ?>
                             <!-- hidden-xs hides the username on small devices so only the image appears. -->
-                            <span class="hidden-xs"> <?=$fullname ?> </span>
+                            <span class="hidden-xs"> <?= $fullname ?> </span>
                         </a>
                         <ul class="dropdown-menu">
                             <!-- The user image in the menu -->
                             <li class="user-header">
                                 <?= Html::img('@web/uploads/' . $image, ['class' => 'img-circle','alt'=>'User Image']); ?>
                                 <p>
-                                    <?php ?>
-                                    <small>Member since Nov. 2012</small>
+                                    <span class="hidden-xs"> <?= $fullname ?> </span>
+                                    <small>Super Admin</small>
                                 </p>
                             </li>
-                            <!-- Menu Body -->
+                            <!-- Menu Body 
                             <li class="user-body">
                                 <div class="row">
                                     <div class="col-xs-4 text-center">
@@ -176,7 +176,7 @@ AppAsset::register($this);
                                         <a href="#">Friends</a>
                                     </div>
                                 </div>
-                                <!-- /.row -->
+                                <!-- /.row 
                             </li>
                             <!-- Menu Footer-->
                             <li class="user-footer">
@@ -184,7 +184,15 @@ AppAsset::register($this);
                                     <a href="#" class="btn btn-default btn-flat">Profile</a>
                                 </div>
                                 <div class="pull-right">
-                                    <a href="#" class="btn btn-default btn-flat">Sign out</a>
+									<?php /* Sign out button*/ ?>
+									<?= Html::beginForm(['/site/logout'], 'post')
+										. Html::submitButton(
+											'Sign Out',
+											['class' => 'btn btn-default btn-flat']
+										)
+										. Html::endForm()
+									?>
+
                                 </div>
                             </li>
                         </ul>
@@ -211,7 +219,7 @@ AppAsset::register($this);
 
                 </div>
                 <div class="pull-left info">
-                    <p>Alexander Pierce</p>
+                    <p><?=$fullname ?></p>
                     <!-- Status -->
                     <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
                 </div>

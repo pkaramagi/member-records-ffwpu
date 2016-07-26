@@ -23,7 +23,7 @@ class AdminLTEAsset extends  AssetBundle
 
     public $depends = [
         'yii\web\YiiAsset',
-        'yii\bootstrap\BootstrapAsset',
+        'yii\bootstrap\BootstrapPluginAsset',
         'backend\assets\FontAwesomeAsset',
         'backend\assets\IonIconsAsset'
     ];
