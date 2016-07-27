@@ -7,7 +7,7 @@ use yii\widgets\Pjax;
 /* @var $searchModel backend\models\AppUserSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = Yii::t('app', 'App Users');
+$this->title = Yii::t('app', 'Members');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 
@@ -19,7 +19,7 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="app-user-index box box-primary">
     <!-- .box-header -->
     <div class="box-header with-border">
-        <h3 class="box-title">List of Members</h3>
+        <h3 class="box-title">List of <?= Html::encode($this->title) ?></h3>
     </div>
     <!-- /.box-header -->
     <div class="box-body">

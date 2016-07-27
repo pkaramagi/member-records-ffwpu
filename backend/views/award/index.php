@@ -21,7 +21,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <!-- .box-header -->
     <div class="box-header with-border">
-        <h3 class="box-title">List of Members</h3>
+        <h3 class="box-title">List of <?= Html::encode($this->title) ?></h3>
     </div>
     <!-- /.box-header -->
     <div class="box-body">

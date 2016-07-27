@@ -12,7 +12,7 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="qualification-view">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+    <!-- <h1><?= Html::encode($this->title) ?></h1> -->
 
     <p>
         <?= Html::a(Yii::t('app', 'Update'), ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
@@ -25,6 +25,14 @@ $this->params['breadcrumbs'][] = $this->title;
         ]) ?>
     </p>
 
+		<div class=" box box-primary">
+    <!-- .box-header -->
+    <div class="box-header with-border">
+        <h3 class="box-title">List of Members</h3>
+    </div>
+    <!-- /.box-header -->
+    <div class="box-body">
+	
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
@@ -39,4 +47,4 @@ $this->params['breadcrumbs'][] = $this->title;
         ],
     ]) ?>
 
-</div>
+</div></div></div>

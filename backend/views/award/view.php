@@ -31,6 +31,12 @@ $this->params['breadcrumbs'][] = $this->title;
         </div>
         <!-- /.box-header -->
         <div class="box-body">	
+		
+	<?php
+		// full name of user	and id
+		$fullname = $model->user->first_name . $model->user->last_name ;
+		$id = $model->user->id;
+	?>
 
     <?= DetailView::widget([
         'model' => $model,
@@ -38,8 +44,13 @@ $this->params['breadcrumbs'][] = $this->title;
             'id',
             'name',
             'issued_by',
-            'remarks:ntext',
-            'user_id',
+            'remarks:html',
+            //'user_id',
+			[                    // the user of the model
+                'label' => 'Awarded To',
+				'value' => Html::a( $fullname, ['app-user/view', 'id' => $model->user->id], ['class' => 'profile-link']),
+                'format'=> 'html',
+            ],
         ],
     ]) ?>
 

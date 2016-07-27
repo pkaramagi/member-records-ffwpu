@@ -418,8 +418,8 @@ AppAsset::register($this);
 					
                     <ul class="treeview-menu">
                         <li><a href="<?php echo Url::toRoute(['qualification/create']);?>"><i class="fa fa-plus-circle" aria-hidden="true"></i></i>Create</a></li>
-                        <li><a href="<?php echo Url::toRoute(['donation/index']);?>"><i class="fa fa-th-list" aria-hidden="true"></i>List</a></li>
-						<li><a href="<?php echo Url::toRoute(['donation/update']);?>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></i>Update</a></li>
+                        <li><a href="<?php echo Url::toRoute(['qualification/index']);?>"><i class="fa fa-th-list" aria-hidden="true"></i>List</a></li>
+						<li><a href="<?php echo Url::toRoute(['qualification/update']);?>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></i>Update</a></li>
                         
                     </ul>
                 </li>
