@@ -18,6 +18,13 @@ $this->params['breadcrumbs'][] = $this->title;
     <p>
         <?= Html::a(Yii::t('app', 'Create Contact Type'), ['create'], ['class' => 'btn btn-success']) ?>
     </p>
+	    <div class="box box-primary">
+        <!-- /.box-header -->
+        <div class="box-header with-border">
+            <h3 class="box-title">List of <?= Html::encode($this->title) ?></h3>
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body">
 <?php Pjax::begin(); ?>    <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
@@ -30,4 +37,4 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
-<?php Pjax::end(); ?></div>
+<?php Pjax::end(); ?></div></div></div>
