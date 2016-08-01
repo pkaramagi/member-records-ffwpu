@@ -1,7 +1,7 @@
 <?php
 
 use yii\helpers\Html;
-use yii\widgets\ActiveForm;
+use yii\bootstrap\ActiveForm;
 use kartik\widgets\Select2;
 use kartik\widgets\DatePicker;
 use kartik\widgets\FileInput;
@@ -12,13 +12,21 @@ use kartik\widgets\FileInput;
 
 <div class="app-user-form box box-primary">
 
-
+<div class="box-header with-border">
+              <h3 class="box-title"><?=$this->title;?></h3>
+            </div>
+			
     <?php $form = ActiveForm::begin(
 			[
-				'options'=>['enctype'=>'multipart/form-data'], // important
+				'layout' => 'horizontal',
+				'options'=>[
+					'enctype'=>'multipart/form-data',
+	
+				], // important
 			]
 		); ?>
     <div class="box-body">
+	<div class="col-md-6">
         <?= $form->field($model, 'first_name')->textInput(['maxlength' => true]) ?>
 
         <?= $form->field($model, 'middle_name')->textInput(['maxlength' => true]) ?>
@@ -55,6 +63,9 @@ use kartik\widgets\FileInput;
         ])->label('Spiritual Birth Date'); ?>
 
 
+
+</div>
+<div class="col-md-6">
         <?= $form->field($model, 'spiritual_parent')->textInput(['maxlength' => true]) ?>
 
         <?= $form->field($model, 'passport')->textInput(['maxlength' => true]) ?>
@@ -77,9 +88,10 @@ use kartik\widgets\FileInput;
             'data' => $generations,
             'options' => ['placeholder' => 'Generation ...'],
         ])->label('Generation'); ?>
+		</div>
     </div>
-    <div class="form-group box-footer">
-        <?= Html::submitButton($model->isNewRecord ? Yii::t('app', 'Create') : Yii::t('app', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+    <div class="box-footer">
+        <?= Html::submitButton($model->isNewRecord ? Yii::t('app', 'Save Member') : Yii::t('app', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

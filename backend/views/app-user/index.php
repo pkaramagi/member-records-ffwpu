@@ -14,9 +14,11 @@ $this->params['breadcrumbs'][] = $this->title;
 <!--    <h1><?= Html::encode($this->title) ?></h1> -->
 <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 <p>
-    <?= Html::a(Yii::t('app', 'Create App User'), ['create'], ['class' => 'btn btn-success']) ?>
+    <?= Html::a(Yii::t('app', 'Create App User'), ['create'], ['class' => 'btn btn-success app-user-index-create-user']) ?>
 </p>
-<div class="app-user-index box box-primary">
+
+<div class="app-user-index ">
+<div class="box box-primary ">
     <!-- .box-header -->
     <div class="box-header with-border">
         <h3 class="box-title">List of <?= Html::encode($this->title) ?></h3>
@@ -51,4 +53,6 @@ $this->params['breadcrumbs'][] = $this->title;
         ]); ?>
         <?php Pjax::end(); ?>
     </div><!-- /.box-body -->
-</div>
+</div> <!-- /.app-user-index -->
+
+
