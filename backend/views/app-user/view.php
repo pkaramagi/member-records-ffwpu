@@ -2,6 +2,8 @@
 
 use yii\helpers\Html;
 use yii\widgets\DetailView;
+use yii\bootstrap\Tabs;
+use yii\data\ArrayDataProvider;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\AppUser */
@@ -11,59 +13,104 @@ $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'App Users'), 'url' =
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="app-user-view ">
-
-    <!--<h1><?= Html::encode($this->title) ?></h1> -->
-
-    <p>
-        <?= Html::a(Yii::t('app', 'Update'), ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a(Yii::t('app', 'Delete'), ['delete', 'id' => $model->id], [
-            'class' => 'btn btn-danger',
+	<div class="row">
+		<div class="col-md-3">
+		 <div class=" box box-primary">
+        
+        <div class="box-body box-profile">
+			<?php
+				 $image = Yii::$app->user->identity->getUserProfile()->picture;
+				 $name = $model->first_name.' '.$model->middle_name.' '.$model->last_name;
+			?>
+			<?= Html::img('@web/uploads/' . $image, ['class' => 'img-circle profile-user-img img-responsive','alt'=>'User Profile Picture']); ?> 
+            <h3 class="profile-username text-center"><?=$name; ?></h3>
+			<p class="text-muted text-center"><?= $model->nationality.' '.$model->generation->name ?></p>
+			  <?= Html::a(Yii::t('app', '<i class="fa fa-pencil-square" aria-hidden="true"></i>    Update'), ['update', 'id' => $model->id], ['class' => 'btn btn-primary btn-block btn-sm']) ?>
+        <?= Html::a(Yii::t('app', ' <i class="fa fa-trash" aria-hidden="true"></i>   Delete'), ['delete', 'id' => $model->id], [
+            'class' => 'btn btn-danger btn-block btn-sm',
             'data' => [
                 'confirm' => Yii::t('app', 'Are you sure you want to delete this User?'),
                 'method' => 'post',
             ],
         ]) ?>
-    </p>
-
-    <div class="app-user-view  box box-primary">
-        <!-- /.box-header -->
-        <div class="box-header with-border">
-            <h3 class="box-title">Details of <?= Html::encode($this->title) ?></h3>
-        </div>
-        <!-- /.box-header -->
-        <div class="box-body">
-            <?= DetailView::widget([
+			<br>
+			<ul class="list-group list-group-unbordered">
+                <li class="list-group-item">
+                  <b>Membership ID</b> <a class="pull-right"><?= $model->id ?></a>
+                </li>
+				<li class="list-group-item">
+                  <b>Sex</b> <a class="pull-right"><?= $model->sex ?></a>
+                </li>
+                <li class="list-group-item">
+                  <b>Passport</b> <a class="pull-right"><?= $model->passport ?></a>
+                </li>
+                <li class="list-group-item">
+                  <b>Date of Birth</b> <a class="pull-right"><?= $model->date_of_birth ?></a>
+                </li>
+				<li class="list-group-item">
+                  <b>Spiritual Birth Date</b> <a class="pull-right"><?= $model->spiritual_date_of_birth ?></a>
+                </li>
+				<li class="list-group-item">
+                  <b>Joined At</b> <a class="pull-right"><?= $model->joined_at; ?></a>
+                </li>
+				
+              </ul>
+			<?= DetailView::widget([
                 'model' => $model,
                 'attributes' => [
-                    'id',
-                    'first_name',
-                    'middle_name',
-                    'last_name',
+                  //  'id',
                    // 'username',
-                    'nationality',
+                   // 'nationality',
                     [                      // the blessing group of the model
                         'label' => 'Blessing Group',
                         'value' => $model->blessingGroup->name,
                     ],
-                    'date_of_birth',
-                    'spiritual_date_of_birth',
-                    'spiritual_parent',
-                    'passport',
-                    'picture',
-                    'joined_at',
-                    'sex',
+                    //'date_of_birth',
+                    //'spiritual_date_of_birth',
+                    //'spiritual_parent',
+                   // 'passport',
+                    //'picture',
+                    //'joined_at',
+                    //'sex',
                    // 'religion_id',
                     [                      // the former religion of the model
                         'label' => 'Former Religion',
                         'value' => $model->religion->name,
                     ],
                    // 'generation_id',
-                    [                      // the generation of the model
-                        'label' => 'Genenation',
-                        'value' => $model->generation->name,
-                    ],
+                   
                 ],
             ]) ?>
 
         </div>
-    </div>
+		</div>
+		
+		
+	</div>
+   <div class="col-md-9">
+	<div class="nav-tabs-custom">
+		<?= Tabs::widget([
+		'encodeLabels' => false,
+    'items' => [
+        [
+            'label' => ' <i class="fa fa-map-marker" aria-hidden="true"></i>   Address and Contact',
+            'content' => \Yii::$app->view->render('@backend/views/award/award-list.php', ['models'=>$model->awards]) ,
+            'active' => true,
+			
+        ],
+        [
+            'label' => 'Workshops',
+            'content' => 'Anim jjjjjjj pariatur cliche...',
+            'options' => ['id' => 'myveryownID'],
+        ],
+       
+    ],
+]);
+   ?>
+
+	</div>
+   </div>
+   
+</div>
+	
+</div>

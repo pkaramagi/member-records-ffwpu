@@ -58,7 +58,7 @@ class AppUserController extends Controller
     public function actionView($id)
     {
         return $this->render('view', [
-            'model' => $this->findModel($id),
+            'model' => $this->findModelData($id),
         ]);
     }
 
@@ -163,4 +163,22 @@ class AppUserController extends Controller
             throw new NotFoundHttpException('The requested page does not exist.');
         }
     }
+	
+	    /**
+     * Finds the AppUser model based on its primary key value and its relations.
+     * If the model is not found, a 404 HTTP exception will be thrown.
+     * @param integer $id
+     * @return AppUser the loaded model
+     * @throws NotFoundHttpException if the model cannot be found
+     */
+    protected function findModelData($id)
+    {
+		$with = ['addresses','awards','punishments','contacts'];
+        if (($model = AppUser::find(['id'=>$id])->with($with)->one()) !== null) {
+            return $model;
+        } else {
+            throw new NotFoundHttpException('The requested page does not exist.');
+        }
+    }
+	
 }
