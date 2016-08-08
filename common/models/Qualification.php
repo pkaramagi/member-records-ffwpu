@@ -10,7 +10,6 @@ use Yii;
  * @property integer $id
  * @property string $name
  * @property string $institution
- * @property string $level
  * @property string $date_of_completion
  * @property string $date_of_start
  * @property string $major
@@ -35,11 +34,11 @@ class Qualification extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'institution', 'level', 'date_of_completion', 'date_of_start', 'major', 'remarks', 'user_id'], 'required'],
+            [['name', 'institution', 'date_of_completion', 'date_of_start', 'major', 'remarks', 'user_id'], 'required'],
             [['date_of_completion', 'date_of_start'], 'safe'],
             [['remarks'], 'string'],
             [['user_id'], 'integer'],
-            [['name', 'institution', 'level', 'major'], 'string', 'max' => 200],
+            [['name', 'institution', 'major'], 'string', 'max' => 200],
             [['user_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['user_id' => 'id']],
         ];
     }
@@ -53,7 +52,6 @@ class Qualification extends \yii\db\ActiveRecord
             'id' => Yii::t('app', 'ID'),
             'name' => Yii::t('app', 'Name'),
             'institution' => Yii::t('app', 'Institution'),
-            'level' => Yii::t('app', 'Level'),
             'date_of_completion' => Yii::t('app', 'Date Of Completion'),
             'date_of_start' => Yii::t('app', 'Date Of Start'),
             'major' => Yii::t('app', 'Major'),

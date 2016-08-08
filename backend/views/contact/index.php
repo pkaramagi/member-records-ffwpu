@@ -21,7 +21,7 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class=" box box-primary">
     <!-- .box-header -->
     <div class="box-header with-border">
-        <h3 class="box-title">List of Members</h3>
+        <h3 class="box-title">List of <?= $this->title; ?></h3>
     </div>
     <!-- /.box-header -->
     <div class="box-body">
@@ -31,12 +31,12 @@ $this->params['breadcrumbs'][] = $this->title;
         'filterModel' => $searchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
-
-            'id',
+            
+			'id',
             'contact_type_id',
             'value',
             'user_id',
-
+			
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>

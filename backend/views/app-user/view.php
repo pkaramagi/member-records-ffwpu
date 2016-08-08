@@ -2,8 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\DetailView;
-use yii\bootstrap\Tabs;
-use yii\data\ArrayDataProvider;
+use yii\bootstrap\Modal;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\AppUser */
@@ -13,6 +12,7 @@ $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'App Users'), 'url' =
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="app-user-view ">
+<div id="user-id" data-id=<?=$model->id; ?> style="display:none;"></div>
 	<div class="row">
 		<div class="col-md-3">
 		 <div class=" box box-primary">
@@ -87,30 +87,24 @@ $this->params['breadcrumbs'][] = $this->title;
 		
 		
 	</div>
+	<?php /*User details start here */?>
    <div class="col-md-9">
-	<div class="nav-tabs-custom">
-		<?= Tabs::widget([
-		'encodeLabels' => false,
-    'items' => [
-        [
-            'label' => ' <i class="fa fa-map-marker" aria-hidden="true"></i>   Address and Contact',
-            'content' => \Yii::$app->view->render('@backend/views/award/award-list.php', ['models'=>$model->awards]) ,
-            'active' => true,
-			
-        ],
-        [
-            'label' => 'Workshops',
-            'content' => 'Anim jjjjjjj pariatur cliche...',
-            'options' => ['id' => 'myveryownID'],
-        ],
-       
-    ],
-]);
-   ?>
-
-	</div>
+	<?= $this->render('_details', ['model'=> $model ] ); ?>
    </div>
+	<?php /*User details end here */?>
    
 </div>
 	
 </div>
+
+<?php Modal::begin([
+        'header' => '<h4 class="modal-title"></h4>', 	
+		'headerOptions' => ['class' => 'modal-header'],
+		'id'=>'user-details-add',
+		'class' =>'modal',
+		'size' => 'modal-lg'
+		
+]); ?>
+<?=Html::tag('div', '' , ['class' => 'modalContent']) ?>
+
+<?php Modal::end(); ?>

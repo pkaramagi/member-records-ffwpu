@@ -68,8 +68,25 @@ class DonationController extends Controller
         $model = new Donation();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+			if(Yii::$app->request->isAjax){
+				return false;
+			}
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
+			/* check request is an AJAX request */
+			if(Yii::$app->request->isAjax){
+				
+				return $this->renderAjax('create', [
+                'model' => $model,
+				'ajax' => true, /* Tell the view that ajax is enabled*/
+				/*
+                 * passes an array of donation types and users
+                 * */
+                'donation_types'=> DonationType::getDonationTypes(true),
+				'user_id' => Yii::$app->request->post('user_id'),
+				]);
+			} 
+			
             return $this->render('create', [
                 'model' => $model,
                 /*
@@ -96,6 +113,11 @@ class DonationController extends Controller
         } else {
             return $this->render('update', [
                 'model' => $model,
+				  /*
+                 * passes an array of donation types and users
+                 * */
+                'donation_types'=> DonationType::getDonationTypes(true),
+				'users' => AppUser::getUsers(),
             ]);
         }
     }

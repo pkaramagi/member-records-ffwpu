@@ -21,7 +21,7 @@ use dosamigos\tinymce\TinyMce;
 
     <?=$form->field($model, 'organisation_id')->widget(Select2::classname(), [
         'data' => $organisations,
-        'options' => ['placeholder' => 'Select Relationship Type ...'],
+        'options' => ['placeholder' => 'Select Organisation ...'],
         'pluginOptions' => [
             'tags' => true,
             'maximumInputLength' => 2
@@ -43,14 +43,14 @@ use dosamigos\tinymce\TinyMce;
     ]);?>
 
     <?= $form->field($model, 'start_date')->widget(DatePicker::classname(), [
-        'options' => ['placeholder' => 'Enter Certification date ...'],
+        'options' => ['placeholder' => 'Enter Date of Appointment  ...'],
         'pluginOptions' => [
             'autoclose'=>true
         ]
     ])->label('Starting Date'); ?>
 
     <?= $form->field($model, 'end_date')->widget(DatePicker::classname(), [
-        'options' => ['placeholder' => 'Enter Certification date ...'],
+        'options' => ['placeholder' => 'Enter Ending Date ...'],
         'pluginOptions' => [
             'autoclose'=>true
         ]

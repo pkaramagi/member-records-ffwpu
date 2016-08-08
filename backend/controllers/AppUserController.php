@@ -98,6 +98,7 @@ class AppUserController extends Controller
 			
             
         } else {
+			
             return $this->render('create', [
                 'model' => $model,
                 /*
@@ -173,7 +174,7 @@ class AppUserController extends Controller
      */
     protected function findModelData($id)
     {
-		$with = ['addresses','awards','punishments','contacts'];
+		$with = ['contacts','addresses','awards','punishments','unificationCareerRecords','generalCareerRecords','certifiedQualifications','qualifications'];
         if (($model = AppUser::find(['id'=>$id])->with($with)->one()) !== null) {
             return $model;
         } else {

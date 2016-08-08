@@ -27,17 +27,24 @@ $this->params['breadcrumbs'][] = $this->title;
 	<div class=" box box-primary">
     <!-- .box-header -->
     <div class="box-header with-border">
-        <h3 class="box-title">List of Members</h3>
+        <h3 class="box-title">Contact Details</h3>
     </div>
     <!-- /.box-header -->
     <div class="box-body">
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
-            'id',
-            'contact_type_id',
-            'value',
-            'user_id',
+            //'id',
+            [
+				'label' => $model->contactType->name,
+				'value' => $model->value,
+			],
+			[
+				'label' => 'Contact Belongs To',
+				'value' => $model->user->first_name.''.$model->user->last_name.'',
+			]
+            //'value',
+            //'user_id',
         ],
     ]) ?>
 

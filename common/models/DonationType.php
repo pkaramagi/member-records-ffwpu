@@ -29,7 +29,7 @@ class DonationType extends \yii\db\ActiveRecord
     {
         return [
             [['name'], 'required'],
-            [['name'], 'integer'],
+            [['name'], 'string'],
             [['name'], 'unique'],
         ];
     }
@@ -50,7 +50,7 @@ class DonationType extends \yii\db\ActiveRecord
      */
     public function getDonations()
     {
-        return $this->hasMany(Donation::className(), ['donation_type' => 'name']);
+        return $this->hasMany(Donation::className(), ['donation_type' => 'id']);
 
     }
     /**

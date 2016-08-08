@@ -64,4 +64,18 @@ class ContactType extends \yii\db\ActiveRecord
         }
         return static::find()->all();
     }
+	
+	public function getContactTypeIcon($contactType){
+		switch($contactType){
+			
+			case 'Facebook':
+				return '<i class="fa fa-facebook-official" aria-hidden="true"></i>';
+				break;
+			case 'Email':
+				return '<i class="fa fa-envelope" aria-hidden="true"></i>';
+				break;
+				
+		}
+	}	
+	
 }

@@ -29,7 +29,7 @@ class Organisation extends \yii\db\ActiveRecord
     {
         return [
             [['name'], 'required'],
-            [['name'], 'integer'],
+            [['name'], 'string'],
         ];
     }
 

@@ -37,7 +37,7 @@ class Donation extends \yii\db\ActiveRecord
             [['amount', 'donation_type', 'user_id'], 'integer'],
             [['description'], 'string'],
             [['name'], 'string', 'max' => 200],
-            [['donation_type'], 'exist', 'skipOnError' => true, 'targetClass' => DonationType::className(), 'targetAttribute' => ['donation_type' => 'name']],
+            [['donation_type'], 'exist', 'skipOnError' => true, 'targetClass' => DonationType::className(), 'targetAttribute' => ['donation_type' => 'id']],
             [['user_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['user_id' => 'id']],
         ];
     }
@@ -62,7 +62,7 @@ class Donation extends \yii\db\ActiveRecord
      */
     public function getDonationType()
     {
-        return $this->hasOne(DonationType::className(), ['name' => 'donation_type']);
+        return $this->hasOne(DonationType::className(), ['id' => 'donation_type']);
     }
 
     /**

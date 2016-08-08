@@ -23,7 +23,7 @@ use dosamigos\tinymce\TinyMce;
     <?=$form->field($model, 'donation_type')->widget(Select2::classname(), [
         'data' => $donation_types,
         'options' => ['placeholder' => 'Select a Donation Type ...'],
-    ])->label('Blessing Group'); ?>
+    ])->label('Donation Type'); ?>
 
     <?= $form->field($model, 'description')->widget(TinyMce::className(), [
         'options' => ['rows' => 6],

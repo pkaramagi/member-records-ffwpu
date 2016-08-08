@@ -68,8 +68,23 @@ class ContactController extends Controller
         $model = new Contact();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            if(Yii::$app->request->isAjax){
+				return false; //prevent reload in ajax page
+			}
+			return $this->redirect(['view', 'id' => $model->id]);
+			
         } else {
+			/* check request is an AJAX request */
+			if(Yii::$app->request->isAjax){
+				
+				return $this->renderAjax('create', [
+                'model' => $model,
+				'contact_types'=> ContactType::getContactTypes(true),
+				'user_id' => Yii::$app->request->post('user_id'),
+				'ajax' => true, /* Tell the view that ajax is enabled*/
+				
+				]);
+			} 
             return $this->render('create', [
                 'model' => $model,
                 'contact_types'=> ContactType::getContactTypes(true),

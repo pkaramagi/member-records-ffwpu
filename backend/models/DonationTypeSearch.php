@@ -18,7 +18,8 @@ class DonationTypeSearch extends DonationType
     public function rules()
     {
         return [
-            [['id', 'name'], 'integer'],
+            [['id'], 'integer'],
+			[['name'], 'string'],
         ];
     }
 

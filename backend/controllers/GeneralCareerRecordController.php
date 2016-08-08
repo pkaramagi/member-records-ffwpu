@@ -67,8 +67,20 @@ class GeneralCareerRecordController extends Controller
         $model = new GeneralCareerRecord();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+			//prevent reload
+			if(Yii::$app->request->isAjax){
+				return false;
+			}
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
+			/* check request is an AJAX request */
+			if(Yii::$app->request->isAjax){
+				return $this->renderAjax('create', [
+                'model' => $model,
+				'ajax' => true, /* Tell the view that ajax is enabled*/
+				'user_id' => Yii::$app->request->post('user_id'),
+				]);
+			} 
             return $this->render('create', [
                 'model' => $model,
 				'users' => AppUser::getUsers(),

@@ -51,14 +51,16 @@ use kartik\widgets\FileInput;
         <?= $form->field($model, 'date_of_birth')->widget(DatePicker::classname(), [
             'options' => ['placeholder' => 'Enter birth date ...'],
             'pluginOptions' => [
-                'autoclose'=>true
+                'autoclose'=>true,
+				'format' => 'yyyy-M-dd',
             ]
         ]); ?>
 
         <?= $form->field($model, 'spiritual_date_of_birth')->widget(DatePicker::classname(), [
             'options' => ['placeholder' => 'Enter birth date ...'],
             'pluginOptions' => [
-                'autoclose'=>true
+                'autoclose'=>true,
+				'format' => 'yyyy-M-dd',
             ]
         ])->label('Spiritual Birth Date'); ?>
 
