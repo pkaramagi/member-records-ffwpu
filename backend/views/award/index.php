@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
+use yii\helpers\Url;
 use yii\widgets\Pjax;
 /* @var $this yii\web\View */
 /* @var $searchModel backend\models\AwardSearch */
@@ -34,7 +35,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'id',
             'name',
             'issued_by',
-            'remarks:ntext',
+            'remarks:html',
             'user_id',
 
             ['class' => 'yii\grid\ActionColumn'],

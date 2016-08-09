@@ -14,12 +14,22 @@ $this->params['breadcrumbs'][] = Yii::t('app', 'Update');
 ?>
 <div class="unification-career-record-update">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+   <!-- <h1><?= Html::encode($this->title) ?></h1> -->
+
+	<?php  if(isset($ajax)){  /*Render a form specific to ajax */ ?>
+
+	<?= $this->render('_form-ajax', [
+        'model' => $model,
+		'organisations' => $organisations,
+		
+    ]) ?>
+	
+	<?php } else { ?>
 
     <?= $this->render('_form', [
         'model' => $model,
 		'organisations' => $organisations,
 		'users' => $users,
     ]) ?>
-
+	<?php }  ?>
 </div>

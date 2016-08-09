@@ -45,7 +45,7 @@ use dosamigos\tinymce\TinyMce;
 </div>
     
 
- <?= $form->field($model, 'user_id')->hiddenInput(['value'=> $user_id])->label(false); ?>
+ <?= $form->field($model, 'user_id')->hiddenInput(['value'=> isset($user_id) ? $user_id : ''  ])->label(false); ?>
 
     <div class="form-group box-footer">
         <?= Html::submitButton($model->isNewRecord ? Yii::t('app', 'Create') : Yii::t('app', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>

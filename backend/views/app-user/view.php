@@ -102,7 +102,19 @@ $this->params['breadcrumbs'][] = $this->title;
 		'headerOptions' => ['class' => 'modal-header'],
 		'id'=>'user-details-add',
 		'class' =>'modal',
-		'size' => 'modal-lg'
+		
+		
+]); ?>
+<?=Html::tag('div', '' , ['class' => 'modalContent']) ?>
+
+<?php Modal::end(); ?>
+
+<?php Modal::begin([
+        'header' => '<h4 class="modal-title"></h4>', 	
+		'headerOptions' => ['class' => 'modal-header'],
+		'id'=>'user-details-rud',
+		'class' =>'modal',
+		
 		
 ]); ?>
 <?=Html::tag('div', '' , ['class' => 'modalContent']) ?>

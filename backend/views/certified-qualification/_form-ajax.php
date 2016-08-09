@@ -18,16 +18,19 @@ use kartik\widgets\Select2;
 	]); ?>
     <div class="box-body">
     <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
-
+<div class="row">
+<div class="col-md-6">
     <?= $form->field($model, 'certification_institution')->textInput(['maxlength' => true]) ?>
-
+</div>
+<div class="col-md-6">
     <?= $form->field($model, 'date')->widget(DatePicker::classname(), [
         'options' => ['placeholder' => 'Enter Certification date ...'],
         'pluginOptions' => [
             'autoclose'=>true
         ]
     ])->label('Certification Date'); ?>
-
+</div>
+</div>
 
 	
     <?= $form->field($model, 'remarks')->widget(TinyMce::className(), [
@@ -40,7 +43,7 @@ use kartik\widgets\Select2;
     ]);?>
 	
 
-	<?= $form->field($model, 'user_id')->hiddenInput(['value'=> $user_id])->label(false); ?>
+	<?= $form->field($model, 'user_id')->hiddenInput(['value'=> isset($user_id) ? $user_id : $model->user_id ])->label(false); ?>
    
     </div>
     <div class="form-group box-footer">

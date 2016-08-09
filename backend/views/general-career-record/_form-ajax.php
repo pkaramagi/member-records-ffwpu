@@ -13,7 +13,9 @@ use kartik\widgets\Select2;
 
 <div class="general-career-record-form box box-primary">
 
-    <?php $form = ActiveForm::begin(); ?>
+    <?php $form = ActiveForm::begin([
+	    'id' =>'general-career-form',
+	]); ?>
 	
 	<div class="box-body">
 
@@ -45,7 +47,7 @@ use kartik\widgets\Select2;
         ]
     ])->label('Ending Date'); ?>
 
-	<?= $form->field($model, 'user_id')->hiddenInput(['value'=> $user_id])->label(false); ?>
+	<?= $form->field($model, 'user_id')->hiddenInput(['value'=> isset($user_id) ? $user_id : $model->user_id ])->label(false); ?>
    
     <div class="form-group box-footer">
         <?= Html::submitButton($model->isNewRecord ? Yii::t('app', 'Create') : Yii::t('app', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>

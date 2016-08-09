@@ -13,7 +13,9 @@ use kartik\widgets\Select2;
 
 <div class="punishment-form box box-primary">
 
-    <?php $form = ActiveForm::begin(); ?>
+    <?php $form = ActiveForm::begin([
+	    'id' =>'punishment-form',
+	]); ?>
 <div class="box-body">
     <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
 
@@ -28,7 +30,7 @@ use kartik\widgets\Select2;
         ]
     ]);?>
 	
-	<?= $form->field($model, 'user_id')->hiddenInput(['value'=> $user_id])->label(false); ?>
+	<?= $form->field($model, 'user_id')->hiddenInput(['value'=> isset($user_id) ? $user_id : $model->user_id  ])->label(false); ?>
 
 </div>
     <div class="form-group box-footer">

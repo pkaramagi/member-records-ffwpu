@@ -14,10 +14,11 @@ $this->params['breadcrumbs'][] = Yii::t('app', 'Update');
 ?>
 <div class="award-update">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+   <!-- <h3><?= Html::encode($this->title) ?></h3> -->
 
-    <?= $this->render('_form', [
+    <?= $this->render( isset($ajax) ? '_form-ajax' : '_form', [
         'model' => $model,
+		'users' => $users,
     ]) ?>
 
 </div>

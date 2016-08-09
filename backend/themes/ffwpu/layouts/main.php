@@ -244,248 +244,115 @@ AppAsset::register($this);
                 <li class="header">MAIN NAVIGATION</li>
                 <!-- Optionally, you can add icons to the links -->
 				<?php /*urls for app-user crud*/?>
-                <li class="treeview">
-                    <a href="<?php echo Url::toRoute(['app-user/index']);?>"><i class="fa fa-user" aria-hidden="true"></i><span>Users</span>
+                <li>
+                    <a href="<?= Url::toRoute(['app-user/index']);?>"><i class="fa fa-user" aria-hidden="true"></i><span>Users</span></a>
                 </li>
-				<?php /*urls for workshops*/?>
-				<li class="treeview">
-                    <a href="#"><i class="fa fa-book" aria-hidden="true"></i><span>Workshops</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-                    </a>
-					
-                    <ul class="treeview-menu">
-                        <li><a href="<?php echo Url::toRoute(['workshop/create']);?>"><i class="fa fa-plus-circle" aria-hidden="true"></i></i>Create</a></li>
-                        <li><a href="<?php echo Url::toRoute(['workshop/index']);?>"><i class="fa fa-th-list" aria-hidden="true"></i>List</a></li>
-						<li><a href="<?php echo Url::toRoute(['workshop/update']);?>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></i>Update</a></li>
-                        
-                    </ul>
+	
+				<li class="">
+                    <a href="<?= Url::toRoute(['workshop/index']);?>"><i class="fa fa-book" aria-hidden="true"></i><span>Workshops</span></a>
                 </li>
 				<?php /*urls for awards*/?>
-				<li class="treeview">
-                    <a href="#"><i class="fa fa-trophy" aria-hidden="true"></i><span>Awards</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-                    </a>
-					
-                    <ul class="treeview-menu">
-                        <li><a href="<?php echo Url::toRoute(['award/create']);?>"><i class="fa fa-plus-circle" aria-hidden="true"></i></i>Create</a></li>
-                        <li><a href="<?php echo Url::toRoute(['award/index']);?>"><i class="fa fa-th-list" aria-hidden="true"></i>List</a></li>
-						<li><a href="<?php echo Url::toRoute(['award/update']);?>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></i>Update</a></li>
-                        
-                    </ul>
+				<li>
+                    <a href="<?= Url::toRoute(['award/index']);?>"><i class="fa fa-trophy" aria-hidden="true"></i><span>Awards</span></a>
                 </li>
 				<?php /*urls for punishments*/?>
-				<li class="treeview">
-                    <a href="#"><i class="fa fa-frown-o" aria-hidden="true"></i><span>Punishments</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-                    </a>
-					
-                    <ul class="treeview-menu">
-                        <li><a href="<?php echo Url::toRoute(['punishment/create']);?>"><i class="fa fa-plus-circle" aria-hidden="true"></i></i>Create</a></li>
-                        <li><a href="<?php echo Url::toRoute(['punishment/index']);?>"><i class="fa fa-th-list" aria-hidden="true"></i>List</a></li>
-						<li><a href="<?php echo Url::toRoute(['punishment/update']);?>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></i>Update</a></li>
-                        
-                    </ul>
+				<li>
+                    <a href="<?= Url::toRoute(['punishment/index']);?>"><i class="fa fa-frown-o" aria-hidden="true"></i><span>Punishments</span></a>
                 </li>	
 				<?php /*urls for Address*/?>
-				<li class="treeview">
-                    <a href="#"><i class="fa fa-map-marker" aria-hidden="true"></i><span>Address</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
+				<li>
+                    <a href="<?php echo Url::toRoute(['address/index']);?>"><i class="fa fa-map-marker" aria-hidden="true"></i><span>Address</span></a>
+           
+         
+                </li>
+				<?php /*urls for punishments*/?>
+				<li>
+                    <a href="<?php echo Url::toRoute(['blessing-group/index']);?>"><i class="fa fa-users" aria-hidden="true"></i><span>Blessing Groups</span>
+          
                     </a>
 					
-                    <ul class="treeview-menu">
-                        <li><a href="<?php echo Url::toRoute(['address/create']);?>"><i class="fa fa-plus-circle" aria-hidden="true"></i></i>Create</a></li>
-                        <li><a href="<?php echo Url::toRoute(['address/index']);?>"><i class="fa fa-th-list" aria-hidden="true"></i>List</a></li>
-						<li><a href="<?php echo Url::toRoute(['address/update']);?>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></i>Update</a></li>
-                        
-                    </ul>
+                </li>
+				<?php /*urls for punishments*/?>
+				<li class="">
+                    <a href="<?php echo Url::toRoute(['certified-qualification/index']);?>"><i class="fa fa-certificate" aria-hidden="true"></i><span>Certified Qualifications</span>
+            
+                    </a>
+					
+                   
+                </li>
+				<?php /*urls for punishments*/?>
+				<li class="">
+                    <a href="<?php echo Url::toRoute(['contact/index']);?>"><i class="fa fa-phone-square" aria-hidden="true"></i><span>Contacts</span>
+           
+                    </a>
+					
+                </li>
+				<?php /*urls for punishments*/?>
+				<li class="">
+                    <a href="<?php echo Url::toRoute(['donation/index']);?>"><i class="fa fa-gift" aria-hidden="true"></i><span>Donations</span>
+     
+                    </a>
+				
+                </li>
+				<?php /*urls for punishments*/?>
+				<li class="">
+                    <a href="<?php echo Url::toRoute(['foreign-languages/index']);?>"><i class="fa fa-language" aria-hidden="true"></i><span>Foreign Languages</span>
+           
+                    </a>
+					
+                </li>
+				<?php /*urls for punishments*/?>
+				<li class="">
+                    <a href="<?php echo Url::toRoute(['general-career-record/index']);?>"><i class="fa fa-briefcase" aria-hidden="true"></i><span>General Career Record</span>
+            
+                    </a>
+					
+                </li>
+				<?php /*urls for punishments*/?>
+				<li class="">
+                    <a href="<?php echo Url::toRoute(['qualification/index']);?>"><i class="fa fa-graduation-cap" aria-hidden="true"></i><span>Qualifications</span>
+            
+                    </a>
+					
+                </li>
+				<?php /*urls for punishments*/?>
+				<li class="">
+                    <a href="<?php echo Url::toRoute(['generation/index']);?>"><i class="fa fa-users" aria-hidden="true"></i><span>Generations</span>
+            
+                    </a>
+					
+                   
+                </li>
+				<?php /*urls for punishments*/?>
+				<li class="">
+                    <a href="<?php echo Url::toRoute(['relationship/index']);?>"><i class="fa fa-link" aria-hidden="true"></i><span>Relationships</span>
+           
+                    </a>
+					
+                    
                 </li>
 				<?php /*urls for punishments*/?>
 				<li class="treeview">
-                    <a href="#"><i class="fa fa-users" aria-hidden="true"></i><span>Blessing Groups</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
+                    <a href="<?php echo Url::toRoute(['religion/index']);?>"><i class="fa fa-heart" aria-hidden="true"></i><span>Religions</span>
+            
                     </a>
 					
-                    <ul class="treeview-menu">
-                        <li><a href="<?php echo Url::toRoute(['blessing-group/create']);?>"><i class="fa fa-plus-circle" aria-hidden="true"></i></i>Create</a></li>
-                        <li><a href="<?php echo Url::toRoute(['blessing-group/index']);?>"><i class="fa fa-th-list" aria-hidden="true"></i>List</a></li>
-						<li><a href="<?php echo Url::toRoute(['blessing-group/update']);?>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></i>Update</a></li>
-                        
-                    </ul>
+                    
                 </li>
 				<?php /*urls for punishments*/?>
-				<li class="treeview">
-                    <a href="#"><i class="fa fa-certificate" aria-hidden="true"></i><span>Certified Qualifications</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
+				<li class="">
+                    <a href="<?php echo Url::toRoute(['unification-career-record/index']);?>"><i class="fa fa-briefcase" aria-hidden="true"></i><span>Unification Career Record</span>
+            
                     </a>
 					
-                    <ul class="treeview-menu">
-                        <li><a href="<?php echo Url::toRoute(['certified-qualification/create']);?>"><i class="fa fa-plus-circle" aria-hidden="true"></i></i>Create</a></li>
-                        <li><a href="<?php echo Url::toRoute(['certified-qualification/index']);?>"><i class="fa fa-th-list" aria-hidden="true"></i>List</a></li>
-						<li><a href="<?php echo Url::toRoute(['certified-qualification/update']);?>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></i>Update</a></li>
-                        
-                    </ul>
                 </li>
 				<?php /*urls for punishments*/?>
-				<li class="treeview">
-                    <a href="#"><i class="fa fa-phone-square" aria-hidden="true"></i><span>Contacts</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
+				<li class="">
+                    <a href="<?php echo Url::toRoute(['chronic-disease/index']);?>"><i class="fa fa-medkit" aria-hidden="true"></i><span>Chronic Diseases</span>
+            
                     </a>
 					
-                    <ul class="treeview-menu">
-                        <li><a href="<?php echo Url::toRoute(['contact/create']);?>"><i class="fa fa-plus-circle" aria-hidden="true"></i></i>Create</a></li>
-                        <li><a href="<?php echo Url::toRoute(['contact/index']);?>"><i class="fa fa-th-list" aria-hidden="true"></i>List</a></li>
-						<li><a href="<?php echo Url::toRoute(['contact/update']);?>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></i>Update</a></li>
-                        
-                    </ul>
-                </li>
-				<?php /*urls for punishments*/?>
-				<li class="treeview">
-                    <a href="#"><i class="fa fa-gift" aria-hidden="true"></i><span>Donations</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-                    </a>
-					
-                    <ul class="treeview-menu">
-                        <li><a href="<?php echo Url::toRoute(['donation/create']);?>"><i class="fa fa-plus-circle" aria-hidden="true"></i></i>Create</a></li>
-                        <li><a href="<?php echo Url::toRoute(['donation/index']);?>"><i class="fa fa-th-list" aria-hidden="true"></i>List</a></li>
-						<li><a href="<?php echo Url::toRoute(['donation/update']);?>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></i>Update</a></li>
-                        
-                    </ul>
-                </li>
-				<?php /*urls for punishments*/?>
-				<li class="treeview">
-                    <a href="#"><i class="fa fa-language" aria-hidden="true"></i><span>Foreign Languages</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-                    </a>
-					
-                    <ul class="treeview-menu">
-                        <li><a href="<?php echo Url::toRoute(['foreign-languages/create']);?>"><i class="fa fa-plus-circle" aria-hidden="true"></i></i>Create</a></li>
-                        <li><a href="<?php echo Url::toRoute(['foreign-languages/index']);?>"><i class="fa fa-th-list" aria-hidden="true"></i>List</a></li>
-						<li><a href="<?php echo Url::toRoute(['foreign-languages/update']);?>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></i>Update</a></li>
-                        
-                    </ul>
-                </li>
-				<?php /*urls for punishments*/?>
-				<li class="treeview">
-                    <a href="#"><i class="fa fa-briefcase" aria-hidden="true"></i><span>General Career Record</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-                    </a>
-					
-                    <ul class="treeview-menu">
-                        <li><a href="<?php echo Url::toRoute(['general-career-record/create']);?>"><i class="fa fa-plus-circle" aria-hidden="true"></i></i>Create</a></li>
-                        <li><a href="<?php echo Url::toRoute(['general-career-record/index']);?>"><i class="fa fa-th-list" aria-hidden="true"></i>List</a></li>
-						<li><a href="<?php echo Url::toRoute(['general-career-record/update']);?>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></i>Update</a></li>
-                        
-                    </ul>
-                </li>
-				<?php /*urls for punishments*/?>
-				<li class="treeview">
-                    <a href="#"><i class="fa fa-graduation-cap" aria-hidden="true"></i><span>Qualifications</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-                    </a>
-					
-                    <ul class="treeview-menu">
-                        <li><a href="<?php echo Url::toRoute(['qualification/create']);?>"><i class="fa fa-plus-circle" aria-hidden="true"></i></i>Create</a></li>
-                        <li><a href="<?php echo Url::toRoute(['qualification/index']);?>"><i class="fa fa-th-list" aria-hidden="true"></i>List</a></li>
-						<li><a href="<?php echo Url::toRoute(['qualification/update']);?>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></i>Update</a></li>
-                        
-                    </ul>
-                </li>
-				<?php /*urls for punishments*/?>
-				<li class="treeview">
-                    <a href="#"><i class="fa fa-users" aria-hidden="true"></i><span>Generations</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-                    </a>
-					
-                    <ul class="treeview-menu">
-                        <li><a href="<?php echo Url::toRoute(['generation/create']);?>"><i class="fa fa-plus-circle" aria-hidden="true"></i></i>Create</a></li>
-                        <li><a href="<?php echo Url::toRoute(['generation/index']);?>"><i class="fa fa-th-list" aria-hidden="true"></i>List</a></li>
-						<li><a href="<?php echo Url::toRoute(['generation/update']);?>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></i>Update</a></li>
-                        
-                    </ul>
-                </li>
-				<?php /*urls for punishments*/?>
-				<li class="treeview">
-                    <a href="#"><i class="fa fa-link" aria-hidden="true"></i><span>Relationships</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-                    </a>
-					
-                    <ul class="treeview-menu">
-                        <li><a href="<?php echo Url::toRoute(['relationship/create']);?>"><i class="fa fa-plus-circle" aria-hidden="true"></i></i>Create</a></li>
-                        <li><a href="<?php echo Url::toRoute(['relationship/index']);?>"><i class="fa fa-th-list" aria-hidden="true"></i>List</a></li>
-						<li><a href="<?php echo Url::toRoute(['relationship/update']);?>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></i>Update</a></li>
-                        
-                    </ul>
-                </li>
-				<?php /*urls for punishments*/?>
-				<li class="treeview">
-                    <a href="#"><i class="fa fa-heart" aria-hidden="true"></i><span>Religions</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-                    </a>
-					
-                    <ul class="treeview-menu">
-                        <li><a href="<?php echo Url::toRoute(['religion/create']);?>"><i class="fa fa-plus-circle" aria-hidden="true"></i></i>Create</a></li>
-                        <li><a href="<?php echo Url::toRoute(['religion/index']);?>"><i class="fa fa-th-list" aria-hidden="true"></i>List</a></li>
-						<li><a href="<?php echo Url::toRoute(['religion/update']);?>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></i>Update</a></li>
-                        
-                    </ul>
-                </li>
-				<?php /*urls for punishments*/?>
-				<li class="treeview">
-                    <a href="#"><i class="fa fa-briefcase" aria-hidden="true"></i><span>Unification Career Record</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-                    </a>
-					
-                    <ul class="treeview-menu">
-                        <li><a href="<?php echo Url::toRoute(['unification-career-record/create']);?>"><i class="fa fa-plus-circle" aria-hidden="true"></i></i>Create</a></li>
-                        <li><a href="<?php echo Url::toRoute(['unification-career-record/index']);?>"><i class="fa fa-th-list" aria-hidden="true"></i>List</a></li>
-						<li><a href="<?php echo Url::toRoute(['unification-career-record/update']);?>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></i>Update</a></li>
-                        
-                    </ul>
-                </li>
-				<?php /*urls for punishments*/?>
-				<li class="treeview">
-                    <a href="#"><i class="fa fa-medkit" aria-hidden="true"></i><span>Chronic Diseases</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-                    </a>
-					
-                    <ul class="treeview-menu">
-                        <li><a href="<?php echo Url::toRoute(['chronic-disease/create']);?>"><i class="fa fa-plus-circle" aria-hidden="true"></i></i>Create</a></li>
-                        <li><a href="<?php echo Url::toRoute(['chronic-disease/index']);?>"><i class="fa fa-th-list" aria-hidden="true"></i>List</a></li>
-						<li><a href="<?php echo Url::toRoute(['chronic-disease/update']);?>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></i>Update</a></li>
-                        
-                    </ul>
+                   
                 </li>
 				
             </ul>

@@ -36,8 +36,8 @@ $this->params['breadcrumbs'][] = $this->title;
             'city',
             'district',
             'region',
-            // 'country',
-            // 'user_id',
+             'country',
+             'user_id',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

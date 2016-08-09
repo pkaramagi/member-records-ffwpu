@@ -15,10 +15,19 @@ $this->params['breadcrumbs'][] = Yii::t('app', 'Update');
 <div class="address-update">
 
     <!--<h1><?= Html::encode($this->title) ?></h1> -->
+<?php  if(isset($ajax)){  /*Render a form specific to ajax */ ?>
+
+	<?= $this->render('_form-ajax', [
+        'model' => $model,
+    ]) ?>
+	
+<?php } else { ?>
 
     <?= $this->render('_form', [
         'model' => $model,
 		'users' => $users,
     ]) ?>
+	
+<?php } ?>
 
 </div>

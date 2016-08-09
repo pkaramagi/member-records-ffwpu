@@ -104,6 +104,16 @@ class PunishmentController extends Controller
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
+			
+			if(Yii::$app->request->isAjax){
+				
+				return $this->renderAjax('update', [
+                'model' => $model,
+				'ajax' => true, /* Tell the view that ajax is enabled*/
+				
+				]);
+			} 
+			
             return $this->render('update', [
                 'model' => $model,
 				'users' => AppUser::getUsers(),

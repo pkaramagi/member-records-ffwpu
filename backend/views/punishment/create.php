@@ -20,9 +20,13 @@ $this->params['breadcrumbs'][] = $this->title;
 		'user_id' => $user_id,
     ]) ?>
 	
+<?php } else { ?>
+
+
     <?= $this->render('_form', [
         'model' => $model,
 		'users' => $users,
     ]) ?>
 
+<?php }  ?>
 </div>

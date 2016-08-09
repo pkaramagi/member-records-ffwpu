@@ -13,23 +13,30 @@ use dosamigos\tinymce\TinyMce;
 
 <div class="qualification-form box box-primary">
 
-    <?php $form = ActiveForm::begin(); ?>
+    <?php $form = ActiveForm::begin([
+	    'id' =>'qualification-form',
+	]); ?>
 	
 	<div class="box-body">
 
     <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
-
+<div class="row">
+<div class="col-md-6">
     <?= $form->field($model, 'institution')->textInput(['maxlength' => true]) ?>
-
+</div>
+<div class="col-md-6">
     <?= $form->field($model, 'major')->textInput(['maxlength' => true]) ?>
-
+</div></div>
+<div class="row">
+<div class="col-md-6">
     <?= $form->field($model, 'date_of_start')->widget(DatePicker::classname(), [
         'options' => ['placeholder' => 'Enter Start date ...'],
         'pluginOptions' => [
             'autoclose'=>true
         ]
     ]); ?>
-
+</div>
+<div class="col-md-6">
     <?= $form->field($model, 'date_of_completion')->widget(DatePicker::classname(), [
         'options' => ['placeholder' => 'Enter Completion date ...'],
         'pluginOptions' => [
@@ -37,7 +44,7 @@ use dosamigos\tinymce\TinyMce;
         ]
     ]); ?>
 
-
+</div></div>
     <?= $form->field($model, 'remarks')->widget(TinyMce::className(), [
         'options' => ['rows' => 6],
         'language' => 'en_GB',
@@ -48,7 +55,7 @@ use dosamigos\tinymce\TinyMce;
     ]);?>
 
 
-	<?= $form->field($model, 'user_id')->hiddenInput(['value'=> $user_id])->label(false); ?>
+	<?= $form->field($model, 'user_id')->hiddenInput(['value'=> isset($user_id) ? $user_id : $model->user_id ])->label(false); ?>
    
 	</div>
     <div class="form-group box-footer">

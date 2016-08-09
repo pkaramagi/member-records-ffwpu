@@ -31,7 +31,9 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
             'id',
-			'workshop_type_id',
+			//display workshop type
+			'workshopType.name:text:Workshop Type',
+			//'workshop_type_id',
             'title',
             'theme:html',
             'location',

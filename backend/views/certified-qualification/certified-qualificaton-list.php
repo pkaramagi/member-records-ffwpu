@@ -31,8 +31,9 @@ use yii\data\ArrayDataProvider;
             // 'remarks:ntext',
 
             [
-			'class' => 'yii\grid\ActionColumn',
 			
+				'class' => 'yii\grid\ActionColumn',
+				'buttonOptions' => ['class'=>'action-link',],
 			],
         ],
     ]); ?>

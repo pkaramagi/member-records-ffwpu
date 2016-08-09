@@ -30,7 +30,7 @@ use kartik\widgets\Select2;
         ]
     ]);?>
 	
-	<?= $form->field($model, 'user_id')->hiddenInput(['value'=> $user_id])->label(false); ?>
+	<?= $form->field($model, 'user_id')->hiddenInput(['value'=> isset($user_id) ? $user_id : '' ])->label(false); ?>
 
 </div>
     <div class="form-group box-footer">

@@ -13,7 +13,9 @@ use dosamigos\tinymce\TinyMce;
 
 <div class="unification-career-record-form box box-primary">
 
-    <?php $form = ActiveForm::begin(); ?>
+    <?php $form = ActiveForm::begin([
+	    'id' =>'unification-career-form',
+	]); ?>
 	
 	<div class="box-body">
 
@@ -59,7 +61,7 @@ use dosamigos\tinymce\TinyMce;
     <?= $form->field($model, 'current')->checkbox(
     ) ?>
 
- 	<?= $form->field($model, 'user_id')->hiddenInput(['value'=> $user_id])->label(false); ?>
+ 	<?= $form->field($model, 'user_id')->hiddenInput(['value'=> isset($user_id) ? $user_id : '' ])->label(false); ?>
    
 
     </div>
