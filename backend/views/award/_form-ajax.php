@@ -13,7 +13,9 @@ use kartik\widgets\Select2;
 
 <div class="award-form box box-primary">
 
-    <?php $form = ActiveForm::begin(); ?>
+    <?php $form = ActiveForm::begin([
+	    'id' =>'award-form',
+	]); ?>
 <div class="box-body">
     <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
 

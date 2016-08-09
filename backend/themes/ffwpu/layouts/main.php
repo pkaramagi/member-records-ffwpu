@@ -245,18 +245,7 @@ AppAsset::register($this);
                 <!-- Optionally, you can add icons to the links -->
 				<?php /*urls for app-user crud*/?>
                 <li class="treeview">
-                    <a href="#"><i class="fa fa-user" aria-hidden="true"></i><span>Users</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-                    </a>
-					
-                    <ul class="treeview-menu">
-                        <li><a href="<?php echo Url::toRoute(['app-user/create']);?>"><i class="fa fa-user-plus" aria-hidden="true"></i>Create</a></li>
-                        <li><a href="<?php echo Url::toRoute(['app-user/index']);?>"><i class="fa fa-th-list" aria-hidden="true"></i>List</a></li>
-						<li><a href="<?php echo Url::toRoute(['app-user/update']);?>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></i>Update</a></li>
-                        
-                    </ul>
+                    <a href="<?php echo Url::toRoute(['app-user/index']);?>"><i class="fa fa-user" aria-hidden="true"></i><span>Users</span>
                 </li>
 				<?php /*urls for workshops*/?>
 				<li class="treeview">

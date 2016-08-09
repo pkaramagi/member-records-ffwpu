@@ -13,7 +13,9 @@ use kartik\widgets\Select2;
 
 <div class="certified-qualification-form box box-primary">
 
-    <?php $form = ActiveForm::begin(); ?>
+    <?php $form = ActiveForm::begin([
+	    'id' =>'certified-qualification-form',
+	]); ?>
     <div class="box-body">
     <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
 

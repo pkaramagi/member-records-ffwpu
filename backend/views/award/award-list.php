@@ -26,7 +26,11 @@ use yii\data\ArrayDataProvider;
             'name',
             'issued_by',
             'remarks:html',
-            ['class' => 'yii\grid\ActionColumn'],
+            [
+			
+				'class' => 'yii\grid\ActionColumn',
+				'buttonOptions' => ['class'=>'action-link',],
+			],
         ],
     ]); ?>
 <?php Pjax::end(); ?>

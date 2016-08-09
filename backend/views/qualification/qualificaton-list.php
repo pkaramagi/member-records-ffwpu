@@ -39,7 +39,11 @@ use yii\data\ArrayDataProvider;
 				}
 			],
 
-            ['class' => 'yii\grid\ActionColumn'],
+            [
+			
+				'class' => 'yii\grid\ActionColumn',
+				'buttonOptions' => ['class'=>'action-link',],
+			],
         ],
     ]); ?>
 <?php Pjax::end(); ?>

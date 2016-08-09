@@ -12,7 +12,9 @@ use dosamigos\tinymce\TinyMce;
 
 <div class="donation-form box">
 
-    <?php $form = ActiveForm::begin(); ?>
+    <?php $form = ActiveForm::begin([
+	    'id' =>'donation-form',
+	]); ?>
 	
 	<div class="box-body">
 <div class="row">
