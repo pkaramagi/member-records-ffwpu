@@ -71,34 +71,34 @@ class AppUserController extends Controller
     {
 
         $model = new AppUser();
-		
+
         if ($model->load(Yii::$app->request->post())) {
-			// get the uploaded file instance. for multiple file uploads
-			// the following data will return an array
-			$model->imageFile = UploadedFile::getInstance($model, 'picture');
-			print_r($model->imageFile);
-			//get file extension
-			$ext = $model->imageFile->extension;
-			
-			// generate a unique file name
-			$filename = Yii::$app->security->generateRandomString().".{$ext}";
+            // get the uploaded file instance. for multiple file uploads
+            // the following data will return an array
+            $model->imageFile = UploadedFile::getInstance($model, 'picture');
+            print_r($model->imageFile);
+            //get file extension
+            $ext = $model->imageFile->extension;
+
+            // generate a unique file name
+            $filename = Yii::$app->security->generateRandomString().".{$ext}";
             $model->picture = $filename;
-			
-			//upload folder path
-			//$imagePath = Yii::getAlias("@webroot").'/uploads';   
-			
-			//$miagePath = $imagePath.$model->picture;
-			
-			if($model->save()){
-				//$image->saveAs($imagePath);
-				$model->upload($filename);
-				return $this->redirect(['view', 'id'=>$model->id]);
-			}
-			
-			
-            
+
+            //upload folder path
+            //$imagePath = Yii::getAlias("@webroot").'/uploads';   
+
+            //$miagePath = $imagePath.$model->picture;
+
+            if($model->save()){
+                //$image->saveAs($imagePath);
+                $model->upload($filename);
+                return $this->redirect(['view', 'id'=>$model->id]);
+            }
+
+
+
         } else {
-			
+
             return $this->render('create', [
                 'model' => $model,
                 /*
@@ -126,7 +126,7 @@ class AppUserController extends Controller
         } else {
             return $this->render('update', [
                 'model' => $model,
-				/*
+                /*
                 *  blessing-group, religions, generation arrays for  auto complete
                  * */
                 'blessing_groups'=>BlessingGroup::getBlessingGroups(true),
@@ -164,8 +164,8 @@ class AppUserController extends Controller
             throw new NotFoundHttpException('The requested page does not exist.');
         }
     }
-	
-	    /**
+
+    /**
      * Finds the AppUser model based on its primary key value and its relations.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
@@ -174,12 +174,12 @@ class AppUserController extends Controller
      */
     protected function findModelData($id)
     {
-		$with = ['contacts','addresses','awards','punishments','unificationCareerRecords','generalCareerRecords','certifiedQualifications','qualifications'];
+        $with = ['contacts','addresses','awards','punishments','unificationCareerRecords','generalCareerRecords','certifiedQualifications','qualifications'];
         if (($model = AppUser::find(['id'=>$id])->with($with)->one()) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
         }
     }
-	
+
 }
