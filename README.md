@@ -1,8 +1,8 @@
 Personnel Records Management App - build in YII2
 ===============================
 Application screenshots 
-![Screenshot 1](https://ibb.co/mqvj7yx "Screenshot 1")
-![Screenshot 2](https://ibb.co/wdstDRL "Screenshot 2")
+![image](https://i.ibb.co/1qsgxXS/2021-07-08-1.png "Screenshot 1")
+![image](https://i.ibb.co/dfgZnrc/2021-07-08.png "Screenshot 2")
 
 DIRECTORY STRUCTURE
 -------------------
